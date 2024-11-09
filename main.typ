@@ -1,303 +1,271 @@
-#let primary_color = rgb(112, 17, 18)  // headings color
-#let shade_color = rgb(250, 242, 243)  // FAF2F3 for contact box
-#let shade_fg = rgb(112, 17, 18)      // 701112 for contact text
-#let shade_line = rgb(224, 184, 189)  // E0B8BD for box border
-
-#let section_heading(title) = block[
-  #set text(font: "EB Garamond")
-  #v(0.3em)
-  #text(primary_color, weight: "regular", smallcaps(title))
-  #v(-3pt)
-  #line(length: 100%, stroke: 0.7pt)
-  #v(0.2em)
-]
+#import "lib.typ": *
 
 // Main document settings
 #set page(
-  margin: (x: 0.5cm, y: 1.15cm),
+  margin: (x: 1.15cm, y: 0.5cm),
   paper: "us-letter",
 )
 
 #set text(
-  font: "EB Garamond",
+  font: fonts.body,
   size: 10pt,
-  fill: rgb(43, 43, 43)
+  fill: rgb(43, 43, 43),
 )
 
-// Contact information box styling
-#let contact_box = rect.with(
-  fill: shade_color,
-  stroke: (paint: shade_line, thickness: 0.5pt),
-  inset: 8pt,
-  radius: 2pt,
-  width: 3.5in
+// Document heading - outside columns
+#header_section(
+  "Bassel El Mabsout",
+  contact_info_box(
+    (
+      (icon: "phone", text: "+1 (857) 939-8769"),
+      (icon: "location", text: "Boston, MA, USA"),
+      (icon: "email", text: "bmabsout@bu.edu")
+    ),
+    (
+      (icon: "globe", text: "bmabsout.com"),
+      (icon: "github", text: "github.com/bmabsout"),
+      (icon: "scholar", text: "Google Scholar")
+    )
+  )
 )
 
-// Document heading
+#v(0.1em)
+
+// Use grid instead of columns for different widths
 #grid(
-  columns: (1fr, auto),
-  gutter: 2em,
-  align(left)[
-    #text(17pt, weight: "bold")[Bassel El Mabsout]
-  ],
-  align(right)[
-    #contact_box[
-      #grid(
-        columns: (auto, auto),
-        gutter: 1em,
-        [
-          #text(fill: shade_fg, size: 9pt)[
-            +1 (857) 939-8769 \
-            Boston, MA, USA \
-            bmabsout\@bu.edu
-          ]
-        ],
-        [
-          #text(fill: shade_fg, size: 9pt)[
-            bmabsout.com \
-            github.com/bmabsout \
-            Google Scholar
-          ]
-        ]
+  columns: (55%, 45%),
+  gutter: 1.2em,
+  // Left column content
+  section_list(
+    (
+      // First half of sections
+      (
+        title: "PUBLICATIONS",
+        content: stack(
+          spacing: 0.65em,
+          publication(
+            "Mabsout B.*, Mysore S.*, Saenko K., Mancuso R.",
+            "How to train your quadrotor: A framework for consistently smooth and responsive flight control via reinforcement learning",
+            "ACM Trans. Cyber-Phys. Syst., 5(4)",
+            "2021"
+          ),
+          publication(
+            "Mabsout B.*, Mysore S.*, Saenko K., Mancuso R.",
+            "Regularizing Action Policies for Smooth Control with Reinforcement Learning",
+            "ICRA",
+            "2021"
+          ),
+          publication(
+            "Mysore S., Mabsout B., Mancuso R., Saenko K.",
+            "Honey. I Shrunk The Actor: A Case Study on Preserving Performance with Smaller Actors in Actor-Critic RL",
+            "IEEE Conference on Games (CoG)",
+            "2021"
+          ),
+          publication(
+            "Mabsout B.",
+            "Tree Shaping, a solution to the expression problem showcased via a compiler for a programming language named Puler",
+            "Masters Thesis, Boston University",
+            "2023"
+          )
+        )
+      ),
+      (
+        title: "ONGOING RESEARCH",
+        content: stack(
+          spacing: 0.65em,
+          entry(
+            "Population Descent",
+            subtitle: none,
+            date: "Submitted",
+            [A natural-selection based Memetic algorithm which adaptively controls hyperparameter selection via a normalized fitness function -- PREPRINT]
+          ),
+          entry(
+            "Sim2Real Adaptation via Anchored Learning",
+            subtitle: none,
+            date: "Submitting",
+            [Anchors allow for adapting RL-based controllers on the fly while mitigating the issue of catastrophic forgetting. Our method does so by finding controllers which satisfy performance conditions both in simulation and reality -- PREPRINT]
+          ),
+          entry(
+            "Safety-critical controller learning",
+            subtitle: none,
+            date: "Ongoing",
+            [We construct learned bounded Lyapunov functions for maintaining safety under a differential equation and on residual dynamics. Adapting controllers to improve the probability of safety and performance in the real world -- SOURCE]
+          ),
+          entry(
+            "State-estimation using Gaussian splatting",
+            subtitle: none,
+            date: "Ongoing",
+            [The pose of a quadrotor is estimated by combining Gaussian splatting with an onboard camera feed. Estimation occurs in real-time on the embedded system]
+          ),
+          entry(
+            "Multi-objective RL via generalized-mean scalarization",
+            subtitle: none,
+            date: "Ongoing",
+            [We use the generalized-mean for scalarizing a normalized multi-Q-value function forming a continuous specification in a multi-objective RL setting]
+          )
+        )
+      ),
+      (
+        title: "PROJECTS",
+        content: stack(
+          spacing: 0.65em,
+          entry(
+            "Stochastic dynamics learning",
+            subtitle: "BU/MIT",
+            date: none,
+            [Achieving safer learned model-based control requires accurate models, given most real-world systems are stochastic, we built Generative Adversarial Networks which modeling the distribution of the system's trajectories -- SOURCE]
+          ),
+          entry(
+            "Honda Ridesharing",
+            subtitle: "SAIL",
+            date: none,
+            [In collaboration with BU's SAIL and Honda, we worked on privacy preserving (using MPC) preferential ride-sharing. My responsibilities included defining optimization constraints so users with similar preferences get pooled together]
+          ),
+          entry(
+            "Seizure Prediction",
+            subtitle: "Machine learning -- CS542",
+            date: none,
+            [A Kaggle competition project which accurately predicted seizure activity in epileptic patients. Utilizing machine learning techniques, we achieved the highest score with a significant margin (AUC score of 0.92) -- PREPRINT]
+          ),
+          entry(
+            "Finding a NASH-ε Equilibrium",
+            subtitle: "Complexity Theory -- CS535",
+            date: none,
+            [This term paper simplifies an existing proof of the complexity class specifying the run-time of finding approximate Nash equilibria -- PREPRINT]
+          ),
+          entry(
+            "Haskell Blog",
+            subtitle: "Personal Blog",
+            date: none,
+            [I created a Haskell blog hosted on IPFS about programming language concepts such as automatic differentiation and dependently typed vector construction which garnered some interest and was featured on Haskell News]
+          )
+        )
       )
-    ]
-  ]
+    ),
+    spacing: 0.8em
+  ),
+  // Right column content
+  section_list(
+    (
+      // Second half of sections
+      (
+        title: "EDUCATION",
+        content: stack(
+          spacing: 0.65em,
+          education_entry(
+            "MS & PhD",
+            "09/2018 --",
+            "Boston University"
+          ),
+          education_entry(
+            "BS",
+            "09/2012 -- 05/2015",
+            "American University of Beirut"
+          )
+        )
+      ),
+      (
+        title: "MENTORSHIP EXPERIENCE",
+        content: stack(
+          spacing: 0.65em,
+          mentorship_entry(
+            "RISE",
+            [ -- Mentored Abhinav Pomalapally via the RISE program performing research in Gradient-based optimization. This work led to his acceptance to UC Berkeley and produced a paper.]
+          ),
+          mentorship_entry(
+            "BU Spark",
+            [ -- Mentored five students in building a quadrotor for control research. This project evolved into the Gaussian Splatting research work.]
+          ),
+          mentorship_entry(
+            "CS 654",
+            [ -- Created projects for 24 students mentoring them in work that led to research contributions. They modeled and controlled an AmazingBall System while minimizing the sim2real gap]
+          ),
+          mentorship_entry(
+            "Efficient RL",
+            [ -- Mentored two graduate students in performing power-efficent RL for pedestrian collision avoidance in Carla-sim, balancing cloud and local computation]
+          )
+        )
+      ),
+      (
+        title: "WORK EXPERIENCE",
+        content: stack(
+          spacing: 0.65em,
+          entry(
+            "Scanman",
+            subtitle: "Freelancer",
+            date: "12/2020 --",
+            [Created Scanman, a barcode based inventory tracker acquired by Meathouse to solve long-standing supply chain inefficiencies]
+          ),
+          entry(
+            "Zahera",
+            subtitle: "Cofounder - CTO",
+            date: "07/2018 -- 09/2022",
+            [Zahera is an app-based photo printing service currently installed on > 15000 devices. I worked on designing the products, building and improving the technologies used, and managing 2 developers]
+          ),
+          entry(
+            "AUB",
+            subtitle: "Researcher",
+            date: "06/2016 -- 08/2018",
+            [I wrote neural-swarm, a collection of experimental optimization algorithms for learning decentralized swarm control in Haskell]
+          ),
+          entry(
+            "CCC",
+            subtitle: "Software Developer",
+            date: "05/2015 -- 05/2017",
+            [I worked on the core team of C3D, a leading 3D-based construction project control application. I implemented several key features, optimizations, and bug fixes in the Java based application]
+          )
+        )
+      ),
+      (
+        title: "SKILLS",
+        content: stack(
+          spacing: 0.5em,
+          skill_group(
+            (
+              "PROGRAMMING",
+              "LANGUAGES",
+              text(
+                size: 6pt,
+                style: "italic",
+                fill: rgb("#000000a8")
+              )[(by familiarity)]
+            ),
+            "Haskell, Nix, Python, Java, C, Processing, (Java,Type)script, Coq, SQL, Bash, C++, Elm, C#, F#, ATS, Lean, GLSL, Clojure, Matlab"
+          ),
+          skill_group(
+            ("FRAMEWORKS", "& LIBRARIES"),
+            "Tensorflow, Pytorch, Keras, Numpy, Scipy, Pandas, Spinning Up, Pybullet, Gurobi, React-Native, Expo, Megaparsec, Extension-Schemes, Polysemy, Firebase"
+          ),
+          skill_group(
+            ("MARKUP",),
+            "LaTeX, HTML, CSS, Markdown, XML"
+          ),
+          skill_group(
+            ("TOOLS",),
+            "Git, Nix, GNU utils, Makefiles, Soldering"
+          )
+        )
+      ),
+      (
+        title: "MISC",
+        content: stack(
+          spacing: 0.5em,
+          skill_group(
+            ("PEER REVIEWED", "VENUES"),
+            "ICRA, ROBOT, TJCA, EMSOFT, COG, DATE, ECRTS, RTSS"
+          ),
+          skill_group(
+            ("PRESENTATIONS",),
+            "WASP, Galois, BU AIR, BU Systems Seminar, HRI-EU, ICRA 2021, and CoG 2021"
+          ),
+          skill_group(
+            ("NATIONALITIES",),
+            "Lebanese and Portuguese"
+          )
+        )
+      )
+    ),
+    spacing: 0.8em
+  )
 )
 
-#v(0.8em)
-
-#let publication(authors, title, venue, year) = block(spacing: 0.65em)[
-  #(authors.split(" and ")
-    .map(name => {
-      if name.contains("Mabsout") {
-        [#text(weight: "bold")[#name]]
-      } else {
-        [#name]
-      }
-    })
-    .join(", "))
-  . #title. #text(style: "italic")[#venue] #year
-]
-
-#columns(2, gutter: 1.2em)[
-  // Left column
-  #section_heading("PUBLICATIONS")
-  #set par(leading: 0.65em)
-  
-  #publication(
-    "Mabsout B.*, Mysore S.*, Saenko K., Mancuso R.",
-    "How to train your quadrotor: A framework for consistently smooth and responsive flight control via reinforcement learning",
-    "ACM Trans. Cyber-Phys. Syst., 5(4)",
-    "2021a"
-  )
-
-  #v(0.3em)
-  #publication(
-    "Mabsout B.*, Mysore S.*, Saenko K., Mancuso R.",
-    "Regularizing Action Policies for Smooth Control with Reinforcement Learning",
-    "ICRA",
-    "2021b"
-  )
-
-  #v(0.3em)
-  #publication(
-    "Mysore S., Mabsout B., Mancuso R., Saenko K.",
-    "Honey. I Shrunk The Actor: A Case Study on Preserving Performance with Smaller Actors in Actor-Critic RL",
-    "IEEE Conference on Games (CoG)",
-    "2021"
-  )
-
-  #v(0.3em)
-  #publication(
-    "Mabsout B.",
-    "Tree Shaping, a solution to the expression problem showcased via a compiler for a programming language named Puler",
-    "Masters Thesis, Boston University",
-    "2023"
-  )
-
-  #v(0.3em)
-  #section_heading("ONGOING RESEARCH")
-  *Population Descent* #h(1fr) Submitted \
-  A natural-selection based Memetic algorithm which adaptively controls hyperparameter selection via a normalized fitness function -- PREPRINT
-
-  #let research_entry(status, title, description) = block(spacing: 0.65em)[
-    #grid(
-      columns: (1fr, auto),
-      [#text(weight: "bold")[#title]], 
-      [#text(size: 9pt)[#status]]
-    )
-    #pad(left: 0.3cm, top: 0.1em)[#description]
-  ]
-
-  #research_entry(
-    "Submitted",
-    "Population Descent",
-    [A natural-selection based Memetic algorithm which adaptively controls hyperparameter selection via a normalized fitness function -- PREPRINT]
-  )
-
-  #v(0.3em)
-  #research_entry(
-    "Submitting",
-    "Sim2Real Adaptation via Anchored Learning",
-    [Anchors allow for adapting RL-based controllers on the fly while mitigating the issue of catastrophic forgetting. Our method does so by finding controllers which satisfy performance conditions both in simulation and reality -- PREPRINT]
-  )
-
-  #v(0.3em)
-  #research_entry(
-    "Ongoing",
-    "Safety-critical controller learning",
-    [We construct learned bounded Lyapunov functions for maintaining safety under a differential equation and on residual dynamics. Adapting controllers to improve the probability of safety and performance in the real world -- SOURCE]
-  )
-
-  #v(0.3em)
-  #research_entry(
-    "Ongoing",
-    "State-estimation using Gaussian splatting",
-    [The pose of a quadrotor is estimated by combining Gaussian splatting with an onboard camera feed. Estimation occurs in real-time on the embedded system]
-  )
-
-  #v(0.3em)
-  #research_entry(
-    "Ongoing",
-    "Multi-objective RL via generalized-mean scalarization",
-    [We use the generalized-mean for scalarizing a normalized multi-Q-value function forming a continuous specification in a multi-objective RL setting]
-  )
-
-  #v(0.3em)
-  #section_heading("PROJECTS")
-
-  #let project_entry(title, subtitle, description) = block(spacing: 0.65em)[
-    #grid(
-      columns: (1fr, auto),
-      [#text(weight: "bold")[#title]], 
-      [#text(style: "italic", size: 9pt)[#subtitle]]
-    )
-    #pad(left: 0.3cm, top: 0.1em)[#description]
-  ]
-
-  #project_entry(
-    "Stochastic dynamics learning",
-    "BU/MIT",
-    [Achieving safer learned model-based control requires accurate models, given most real-world systems are stochastic, we built Generative Adversarial Networks which modeling the distribution of the system's trajectories -- SOURCE]
-  )
-
-  #v(0.3em)
-  #project_entry(
-    "Honda Ridesharing",
-    "SAIL",
-    [In collaboration with BU's SAIL and Honda, we worked on privacy preserving (using MPC) preferential ride-sharing. My responsibilities included defining optimization constraints so users with similar preferences get pooled together]
-  )
-
-  #v(0.3em)
-  #project_entry(
-    "Seizure Prediction",
-    "Machine learning -- CS542",
-    [A Kaggle competition project which accurately predicted seizure activity in epileptic patients. Utilizing machine learning techniques, we achieved the highest score with a significant margin (AUC score of 0.92) -- PREPRINT]
-  )
-
-  #v(0.3em)
-  #project_entry(
-    "Finding a NASH-ε Equilibrium",
-    "Complexity Theory -- CS535",
-    [This term paper simplifies an existing proof of the complexity class specifying the run-time of finding approximate Nash equilibria -- PREPRINT]
-  )
-
-  #v(0.3em)
-  #project_entry(
-    "Haskell Blog",
-    "Personal Blog",
-    [I created a Haskell blog hosted on IPFS about programming language concepts such as automatic differentiation and dependently typed vector construction which garnered some interest and was featured on Haskell News]
-  )
-
-  // Right column
-  #colbreak()
-  
-  #section_heading("EDUCATION")
-  #text(weight: "bold")[MS & PhD] #h(1fr) 09/2018 -- \
-  Boston University
-
-  #text(weight: "bold")[BS] #h(1fr) 09/2012 -- 05/2015 \
-  American University of Beirut
-
-  #v(0.3em)
-  #section_heading("MENTORSHIP EXPERIENCE")
-  #text(weight: "bold")[RISE] -- Mentored Abhinav Pomalapally via the RISE program performing research in Gradient-based optimization. This work led to his acceptance to UC Berkeley and produced a paper.
-
-  #v(0.3em)
-  #section_heading("WORK EXPERIENCE")
-
-  #let experience(company, role, dates, description) = block(spacing: 0.65em)[
-    #grid(
-      columns: (1fr, auto),
-      [#text(weight: "bold")[#company] #h(0.5em) #emph[#role]], 
-      [#text(size: 9pt)[#dates]]
-    )
-    #pad(left: 0.3cm, top: 0.1em)[#description]
-  ]
-
-  #experience(
-    "Scanman",
-    "Freelancer",
-    "12/2020 --",
-    [Created Scanman, a barcode based inventory tracker acquired by Meathouse to solve long-standing supply chain inefficiencies]
-  )
-
-  #v(0.3em)
-  #experience(
-    "Zahera",
-    "Cofounder - CTO",
-    "07/2018 -- 09/2022",
-    [Zahera is an app-based photo printing service currently installed on > 15000 devices. I worked on designing the products, building and improving the technologies used, and managing 2 developers]
-  )
-
-  #v(0.3em)
-  #experience(
-    "AUB",
-    "Researcher",
-    "06/2016 -- 08/2018",
-    [I wrote neural-swarm, a collection of experimental optimization algorithms for learning decentralized swarm control in Haskell]
-  )
-
-  #v(0.3em)
-  #experience(
-    "CCC",
-    "Software Developer",
-    "05/2015 -- 05/2017",
-    [I worked on the core team of C3D, a leading 3D-based construction project control application. I implemented several key features, optimizations, and bug fixes in the Java based application]
-  )
-
-  #v(0.3em)
-  #section_heading("SKILLS")
-
-  #let skill_section(title, skills) = block(spacing: 0.5em)[
-    #grid(
-      columns: (auto, 1fr),
-      gutter: 0.8em,
-      text(weight: "bold", size: 9pt)[#title:],
-      text(size: 9pt)[#skills]
-    )
-  ]
-
-  #skill_section(
-    "PROGRAMMING\nLANGUAGES",
-    "Haskell, Nix, Python, Java, C, Processing, (Java,Type)script, Coq, SQL, Bash, C++, Elm, C#, F#, ATS, Lean, GLSL, Clojure, Matlab"
-  )
-
-  #v(0.3em)
-  #skill_section(
-    "FRAMEWORKS\n& LIBRARIES",
-    "TensorFlow, Pytorch, Keras, Numpy, Scikit, Pandas, Spinning Up, Pybullet, Gurobi, React-Native, Expo, Megaparsec, Extension-Schemes, Polysemy, Firebase"
-  )
-
-  #v(0.3em)
-  #skill_section(
-    "MARKUP",
-    "LaTeX, HTML, CSS, Markdown, XML"
-  )
-
-  #v(0.3em)
-  #skill_section(
-    "TOOLS",
-    "Git, Nix, GNU utils, Makefiles, Soldering"
-  )
-]
