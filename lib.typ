@@ -58,26 +58,56 @@
   #v(0.2em)
 ]
 
+#let contact_column(items) = {
+  let icon_width = 1.6em
+  grid(
+    columns: (icon_width, auto),
+    rows: (auto, auto, auto),
+    gutter: 0.4em,
+    ..items.map(item => (
+      align(center)[#icon(item.icon)],
+      [#text(fill: shade_fg, size: 10pt)[#item.text]]
+    )).flatten()
+  )
+}
 
-#let contact_box = rect.with(
-  fill: shade_color,
-  stroke: (paint: shade_line, thickness: 0.5pt),
-  inset: 8pt,
-  radius: 2pt,
-  width: 3.5in
-)
+#let contact_info_box(left_items, right_items) = {
+  rect(
+    width: 100%,
+    fill: shade_color,
+    radius: 2pt,
+    inset: 8pt,
+    [
+      #grid(
+        columns: (1fr, 1fr),
+        gutter: 1em,
+        contact_column(left_items),
+        contact_column(right_items)
+      )
+    ]
+  )
+}
+
+#let header_section(name, contact_info) = {
+  grid(
+    columns: (55%, 45%),
+    gutter: 1.2em,
+    align(left + bottom)[
+      #text(font: fonts.sans, size: 24pt)[#name]
+    ],
+    contact_info
+  )
+}
 
 #let entry(title, subtitle: none, date: none, description) = stack(
   spacing: 0.5em,
   {
-    // Title row with grid
     grid(
       columns: (1fr, auto),
       [#bold(title) #if subtitle != none [ #h(0.5em) #emph[#subtitle]]], 
       [#text(size: 9pt)[#if date != none {date}]]
     )
   },
-  // Description
   pad(
     left: 0.2cm,
     description
@@ -151,49 +181,6 @@
 #let mentorship_entry(title, description) = block[
   #bold(title) #description
 ]
-
-#let contact_info_box(left_items, right_items) = {
-  let icon_width = 1.2em
-  contact_box[
-    #grid(
-      columns: (1fr, 1fr),
-      gutter: 1em,
-      {
-        grid(
-          columns: (icon_width, 1fr),
-          rows: (auto, auto, auto),
-          gutter: 0.3em,
-          ..left_items.map(item => (
-            align(center)[#icon(item.icon)],
-            align(left)[#text(fill: shade_fg, size: 9pt)[#item.text]]
-          )).flatten()
-        )
-      },
-      {
-        grid(
-          columns: (icon_width, 1fr),
-          rows: (auto, auto, auto),
-          gutter: 0.3em,
-          ..right_items.map(item => (
-            align(center)[#icon(item.icon)],
-            align(left)[#text(fill: shade_fg, size: 9pt)[#item.text]]
-          )).flatten()
-        )
-      }
-    )
-  ]
-}
-
-#let header_section(name, contact_info) = {
-  grid(
-    columns: (55%, 45%),  // Match the main content's column proportions
-    gutter: 1.2em,        // Match the main content's gutter
-    align(left + bottom)[
-      #text(font: fonts.sans, size: 24pt)[#name]
-    ],
-    contact_info
-  )
-}
 
 #show strong: it => text(
   font: fonts.body,
