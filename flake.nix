@@ -25,10 +25,16 @@
         ];
       in
       {
-        packages.default = typixLib.buildTypstProject {
+        packages.resume = typixLib.buildTypstProject {
           name = "resume";
           src = ./.;
-          typstSource = "main.typ";
+          typstSource = "resume.typ";
+          inherit fontPaths;
+        };
+        packages.cv = typixLib.buildTypstProject {
+          name = "cv";
+          src = ./.;
+          typstSource = "cv.typ";
           inherit fontPaths;
         };
 
