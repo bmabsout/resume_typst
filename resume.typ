@@ -230,15 +230,15 @@
                 fill: rgb("#000000a8")
               )[(by familiarity)]
             ),
-            "Haskell, Nix, Python, Java, C, Processing, (Java,Type)script, Coq, SQL, Bash, C++, Elm, C#, F#, ATS, Lean, GLSL, Clojure, Matlab"
+            "Haskell, Nix, Python, Java, C, Processing, (Java,Type)script, Coq, SQL, Bash, C++, Elm, C#, F#, ATS, Lean, GLSL, WGSL, Clojure, Matlab"
           ),
           skill_group(
             ("FRAMEWORKS", "& LIBRARIES"),
-            "Tensorflow, Pytorch, Keras, Numpy, Scipy, Pandas, Spinning Up, Pybullet, Gurobi, React-Native, Expo, Megaparsec, Extension-Schemes, Polysemy, Firebase"
+            "Tensorflow, Pytorch, Keras, Numpy, Scipy, Pandas, Jax, Spinning Up, Pybullet, Gurobi, React-Native, Expo, Megaparsec, Extension-Schemes, Polysemy, Firebase"
           ),
           skill_group(
             ("MARKUP",),
-            "LaTeX, HTML, CSS, Markdown, XML"
+            "LaTeX, HTML, CSS, Markdown, XML, Typst"
           ),
           skill_group(
             ("TOOLS",),
@@ -252,7 +252,7 @@
           spacing: 0.5em,
           skill_group(
             ("PEER REVIEWED", "VENUES"),
-            "ICRA, ROBOT, TJCA, EMSOFT, COG, DATE, ECRTS, RTSS"
+            "ICLR, ICRA, ROBOT, EMSOFT, COG, DATE, ECRTS, RTSS, TJCA"
           ),
           skill_group(
             ("PRESENTATIONS",),

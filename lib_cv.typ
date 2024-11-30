@@ -6,7 +6,7 @@
   header: (
     name: (
       font: fonts.sans,
-      size: 32pt,
+      size: 28pt,
       weight: "medium",
     ),
     contact: (
@@ -18,23 +18,23 @@
         width: 1.6em,
       ),
       box: (
-        gutter: 0.7em,
-        inset: 8pt,
+        gutter: 0.8em,
+        inset: 12pt,
       ),
     ),
-    spacing: 0.8em,
+    vertical_padding: 2em,
   ),
   section: (
     font: fonts.sans,
-    size: 14pt,
+    size: 13pt,
     weight: "bold",
     gutter: 5pt,     // Space between title and line
-    spacing: 2em,    // Space between sections
-    gap: 0.7em,      // Gap between section heading and content
+    spacing: 1em,    // Space between sections
+    gap: 1em,      // Gap between section heading and content
   ),
   subsection: (
     font: fonts.sans,
-    size: 13pt,
+    size: 12pt,
     weight: "medium",
     gap: 0.5em,      // Gap between subsection heading and content
     spacing: 1.2em,  // Space between subsections
@@ -60,13 +60,11 @@
 )
 
 // CV-specific section heading
-#let cv_section(title, content) = {
+#let cv_section(title, body) = {
   block(
     spacing: cv_styling.section.gap,
     {
       grid(
-        columns: 1,
-        rows: (auto, auto),
         gutter: cv_styling.section.gutter,
         text(
           font: cv_styling.section.font,
@@ -74,50 +72,63 @@
           weight: cv_styling.section.weight,
           fill: primary_color,
         )[#smallcaps(title)],
-        line(
-          length: 100%,
-          stroke: (
-            paint: primary_color,
-            thickness: 1pt,
-            dash: "solid"
-          )
-        )
+        // line(
+        //   length: 100%,
+        //   stroke: (
+        //     paint: primary_color,
+        //     thickness: 1pt,
+        //     dash: "solid"
+        //   )
+        // )
       )
     }
   )
-  content
+  body
 }
+
+#let long_line = line(
+  length: 100%,
+  stroke: (
+    paint: primary_color,
+    thickness: 1pt,
+    dash: "solid"
+  )
+)
 
 // New function to handle sections with gaps
 #let cv_sections(sections) = {
   stack(
     spacing: cv_styling.section.spacing,
-    ..sections.map(section => cv_section(section.title, section.content))
+    long_line,
+    ..sections.map(section => cv_section(section.title, section.body)).intersperse( long_line ),
+    long_line
   )
 }
 
 // CV-specific subsection heading
-#let cv_subsection(title) = {
-  block(
+#let cv_subsection(subsection) = {
+  stack(
     spacing: cv_styling.subsection.gap,
     text(
       font: cv_styling.subsection.font,
       size: cv_styling.subsection.size,
       weight: cv_styling.subsection.weight,
       fill: primary_color.lighten(20%),
-    )[#title]
+    )[#subsection.title],
+    v(cv_styling.subsection.gap),
+    subsection.body
   )
 }
 
 // CV-specific entry
-#let cv_entry(content) = {
+#let cv_entry(body) = {
   set text(
     size: cv_styling.entry.size,
     font: fonts.body,
   )
   block(
     inset: cv_styling.entry.inset,
-    content
+    body
   )
 }
 
@@ -135,7 +146,7 @@
 }
 
 // CV-specific date entry helper
-#let cv_date_entry(title, subtitle: none, date, content) = {
+#let cv_date_entry(title, subtitle: none, date, body) = {
   cv_entry[
     #text(..cv_styling.entry.title)[#title] 
     #if subtitle != none [
@@ -144,21 +155,18 @@
     #h(1fr)
     #text(..cv_styling.entry.date)[#date]
     #v(cv_styling.entry.gap)
-    #content
+    #body
   ]
 }
 
 // CV-specific header
 #let cv_header(name, contact_info) = {
-  block(
-    width: 100%,
-    {
-      align(center)[
-        #text(..cv_styling.header.name)[#name]
-        #contact_info
-      ]
-    }
-  )
+  [
+    #align(center, text(..cv_styling.header.name, name))
+    #v(cv_styling.header.vertical_padding)
+    #contact_info
+    #v(cv_styling.header.vertical_padding)
+  ]
 }
 
 // CV-specific icon function
@@ -186,37 +194,26 @@
 }
 
 #let cv_contact_box(items) = {
-  block[
-    #rect(
-      width: 100%,
-      fill: shade_color,
-      radius: 2pt,
-      inset: cv_styling.header.contact.box.inset,
-      [
-        #grid(
-          columns: (1fr, 1fr, 1fr),
-          gutter: 1em,
-          cv_contact_column(items.slice(0, 2)),
-          cv_contact_column(items.slice(2, 4)),
-          cv_contact_column(items.slice(4, 6))
-        )
-      ]
+  block(
+    width: 100%,
+    fill: shade_color,
+    radius: 4pt,
+    inset: cv_styling.header.contact.box.inset,
+    grid(
+      columns: (auto, auto, auto),
+      gutter: 1fr,
+      cv_contact_column(items.slice(0, 2)),
+      cv_contact_column(items.slice(2, 4)),
+      cv_contact_column(items.slice(4, 6))
     )
-    #v(cv_styling.header.spacing)
-  ]
+  )
 }
 
 // Function to handle a list of subsections
 #let cv_subsections(subsections) = {
   stack(
     spacing: cv_styling.subsection.spacing,
-    ..subsections.map(subsection => {
-      [
-        #cv_subsection(subsection.title)
-        #v(cv_styling.subsection.gap)
-        #subsection.content
-      ]
-    })
+    ..subsections.map(cv_subsection)
   )
 }
 

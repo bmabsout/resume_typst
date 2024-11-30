@@ -8,20 +8,24 @@
 
 #set text(
   font: fonts.body,
-  size: 11pt,
-  fill: rgb(43, 43, 43),
 )
+// make sure there's no vertical spacing between objects
+#set block(spacing: 0em)
 
+
+// Add link styling
+#show link: underline
 // Header section with contact info
+#v(-2em)
 #cv_header(
   "Bassel El Mabsout",
   cv_contact_box((
     (icon: "phone", text: "+1 (857) 939-8769"),
-    (icon: "email", text: "bmabsout@bu.edu"),
-    (icon: "globe", text: "bmabsout.com"),
     (icon: "location", text: "Boston, MA, USA"),
-    (icon: "github", text: "github.com/bmabsout"),
-    (icon: "scholar", text: "Google Scholar")
+    (icon: "email", text: link("mailto:bmabsout@bu.edu")),
+    (icon: "globe", text: link("https://bmabsout.com")),
+    (icon: "github", text: link("https://github.com/bmabsout")),
+    (icon: "scholar", text: link("https://scholar.google.com/citations?user=Rxv9W98AAAAJ")[Google Scholar (Rxv9W98)])
   ))
 )
 
@@ -29,7 +33,7 @@
 #cv_sections((
   (
     title: "EDUCATION",
-    content: {
+    body: {
       cv_entries((
         cv_entry[
           *Ph.D. in Computer Science* #h(1fr) 2018 -- Present \
@@ -46,7 +50,7 @@
   ),
   (
     title: "RESEARCH INTERESTS",
-    content: {
+    body: {
       cv_entry[
         - Reinforcement Learning and Control Systems
         - Safety-critical Controller Learning
@@ -58,42 +62,58 @@
   ),
   (
     title: "PUBLICATIONS",
-    content: {
+    body: {
       cv_subsections((
         (
           title: "Peer-Reviewed Journal Articles",
-          content: cv_entry[
+          body: cv_entry[
             Mabsout B.*, Mysore S.*, Saenko K., Mancuso R. (2021) \
             "How to train your quadrotor: A framework for consistently smooth and responsive flight control via reinforcement learning" \
-            *ACM Transactions on Cyber-Physical Systems, 5(4)* \
+            *ACM Trans. Cyber-Phys. Syst., 5(4)* \
             DOI: [add DOI]
           ]
         ),
         (
-          title: "Conference Proceedings",
-          content: {
-            cv_entries((
-              cv_entry[
-                Mabsout B.*, Mysore S.*, Saenko K., Mancuso R. (2021) \
-                "Regularizing Action Policies for Smooth Control with Reinforcement Learning" \
-                *International Conference on Robotics and Automation (ICRA)* \
-                DOI: [add DOI]
-              ],
-              cv_entry[
-                Mysore S., Mabsout B., Mancuso R., Saenko K. (2021) \
-                "Honey. I Shrunk The Actor: A Case Study on Preserving Performance with Smaller Actors in Actor-Critic RL" \
-                *IEEE Conference on Games (CoG)* \
-                DOI: [add DOI]
-              ]
-            ))
-          }
+          title: "Other Publications",
+          body: cv_entry[
+            Mabsout B. (2023) \
+            "Tree Shaping, a solution to the expression problem showcased via a compiler for a programming language named Puler" \
+            *Masters Thesis, Boston University*
+          ]
         )
       ))
     }
   ),
   (
+    title: "ONGOING RESEARCH",
+    body: {
+      cv_entries((
+        cv_entry[
+          *Population Descent* #h(1fr) Submitted \
+          A natural-selection based Memetic algorithm which adaptively controls hyperparameter selection via a normalized fitness function -- PREPRINT
+        ],
+        cv_entry[
+          *Sim2Real Adaptation via Anchored Learning* #h(1fr) Submitting \
+          Anchors allow for adapting RL-based controllers on the fly while mitigating the issue of catastrophic forgetting. Our method does so by finding controllers which satisfy performance conditions both in simulation and reality -- PREPRINT
+        ],
+        cv_entry[
+          *Safety-critical controller learning* #h(1fr) Ongoing \
+          We construct learned bounded Lyapunov functions for maintaining safety under a differential equation and on residual dynamics. Adapting controllers to improve the probability of safety and performance in the real world -- SOURCE
+        ],
+        cv_entry[
+          *State-estimation using Gaussian splatting* #h(1fr) Ongoing \
+          The pose of a quadrotor is estimated by combining Gaussian splatting with an onboard camera feed. Estimation occurs in real-time on the embedded system
+        ],
+        cv_entry[
+          *Multi-objective RL via generalized-mean scalarization* #h(1fr) Ongoing \
+          We use the generalized-mean for scalarizing a normalized multi-Q-value function forming a continuous specification in a multi-objective RL setting
+        ]
+      ))
+    }
+  ),
+  (
     title: "RESEARCH EXPERIENCE",
-    content: {
+    body: {
       cv_entries((
         cv_entry[
           *Graduate Research Assistant* #h(1fr) 2018 -- Present \
@@ -105,7 +125,7 @@
         cv_entry[
           *Research Assistant* #h(1fr) 2016 -- 2018 \
           _American University of Beirut_ \
-          - Developed neural-swarm optimization algorithms
+          - Developed _neural-swarm_, a collection of experimental optimization algorithms
           - Implemented decentralized swarm control systems
         ]
       ))
@@ -113,7 +133,7 @@
   ),
   (
     title: "TEACHING EXPERIENCE",
-    content: {
+    body: {
       cv_entries((
         cv_entry[
           *Course Instructor - CS 654* #h(1fr) 2023 \
@@ -133,23 +153,23 @@
   ),
   (
     title: "GRANTS & AWARDS",
-    content: {
+    body: {
       // Add your grants and awards here
     }
   ),
   (
     title: "SERVICE & LEADERSHIP",
-    content: {
+    body: {
       cv_subsections((
         (
           title: "Peer Review",
-          content: cv_entry[
-            - Reviewer for ICRA, ROBOT, TJCA, EMSOFT, COG, DATE, ECRTS, RTSS
+          body: cv_entry[
+            - Reviewer for ICLR, ICRA, ROBOT, EMSOFT, COG, DATE, ECRTS, RTSS, TJCA
           ]
         ),
         (
           title: "Academic Service",
-          content: cv_entry[
+          body: cv_entry[
             - [Add department/university service]
           ]
         )
@@ -158,7 +178,7 @@
   ),
   (
     title: "PROJECTS",
-    content: {
+    body: {
       cv_entries((
         cv_entry[
           *Stochastic dynamics learning* #h(1fr) BU/MIT \
@@ -185,13 +205,13 @@
   ),
   (
     title: "TECHNICAL SKILLS",
-    content: {
+    body: {
       cv_entry[
-        *Programming Languages:* Haskell, Nix, Python, Java, C, Processing, (Java,Type)script, Coq, SQL, Bash, C++
+        *Programming Languages* _(by familiarity)_: Haskell, Nix, Python, Typescript, Java, C, Processing, Javascript, Coq, SQL, Bash, C++, Elm, C\#, F\#, ATS, Lean, GLSL, WGSL, Clojure, Matlab
         
-        *Frameworks & Libraries:* Tensorflow, Pytorch, Keras, Numpy, Scipy, Pandas, Spinning Up, Pybullet, Gurobi
+        *Frameworks & Libraries:* Tensorflow, Pytorch, Keras, Numpy, Scipy, Pandas, Jax, Spinning Up, Pybullet, Gurobi, React-Native, Megaparsec, Extension-Schemes, Polysemy, Firebase
         
-        *Tools:* Git, Nix, GNU utils, Makefiles, LaTeX
+        *Tools:* Git, Nix, GNU utils, Makefiles, LaTeX, HTML, CSS, Markdown, XML, Typst, Soldering
       ]
     }
   )
