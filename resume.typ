@@ -1,4 +1,4 @@
-#import "lib.typ": *
+#import "src/lib.typ": *
 
 // Main document settings
 #set page(
@@ -234,7 +234,7 @@
           ),
           skill_group(
             ("FRAMEWORKS", "& LIBRARIES"),
-            "Tensorflow, Pytorch, Keras, Numpy, Scipy, Pandas, Jax, Spinning Up, Pybullet, Gurobi, React-Native, Expo, Megaparsec, Extension-Schemes, Polysemy, Firebase"
+            "Tensorflow, Pytorch, Keras, Numpy, Scipy, Pandas, Jax, Spinning Up, Pybullet, Gurobi, React-Native, Expo, Megaparsec, Recursion-Schemes, Polysemy, Firebase"
           ),
           skill_group(
             ("MARKUP",),

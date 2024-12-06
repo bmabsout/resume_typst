@@ -186,3 +186,17 @@
   font: fonts.body,
   weight: 700
 )[#it]
+
+#let diamond(squeeze: 0%) = box(
+  baseline: -10%,
+  polygon(
+    fill: shade_color,
+    stroke: shade_line,
+    (50%, 0pt),    // Top vertex
+    (100%-squeeze, 50%),   // Right vertex 
+    (50%, 100%),   // Bottom vertex
+    (squeeze, 50%)      // Left vertex
+  ),
+  width: 0.4em,
+  height: 0.4em,
+)

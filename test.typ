@@ -1,48 +1,23 @@
-// Test basic font
-#text(font: "EB Garamond")[
-  Regular - The quick brown fox jumps over the lazy dog
-]
-#linebreak()
-#let x = ((title: "dkfjdkf", body: "dkfjdkf"), (title: "kdfjdk", body: "dkfjdkf"))
-#type(x)
+// Enable heading numbering
+#set heading(numbering: "1.")
 
-#let n(l) = {
-  [*#l.title*]
-  l.body
-}
-#n((title: "kdfjdk", body: "dkfjdkf"))
+// Test automatic numbering with labels and links
+#let papers = (
+  (title: "Paper A", key: "a", index: "1"),
+  (title: "Paper B", key: "b", index: "2")
+)
 
-
-#let f(y) = {
-  for item in y {
-    n(item)
-  }
-}
-#f(x)
-
-#let h(y) = {
-  if type(y) != "string" {
-    panic("Expected string argument")
-  }
-  y
-}
-#h("kdfjdk")
-// Test different weights with the correct font family
-#let weights = (100, 200, 400, 500, 600, 700, 800)
-#for w in weights [
-  Weight #w: \
-  #text(font: "EB Garamond", weight: w)[
-    The quick brown fox jumps over the lazy dog
-  ]
-  #linebreak()
+// Create the labeled headings
+#for paper in papers [
+  = #paper.title #label(paper.key)
 ]
 
-// Test italic with different weights
-#v(1em)
-#for w in weights [
-  Italic Weight #w: \
-  #text(font: "EB Garamond", weight: w, style: "italic")[
-    The quick brown fox jumps over the lazy dog
-  ]
-  #linebreak()
+// Test different ways to reference
+#for paper in papers [
+  - Link to #paper.title: #link(label(paper.key), "[" + paper.index + "]")
+]
+
+// Or we could use the loop index
+#for (i, paper) in papers.enumerate() [
+  - Link to #paper.title: #link(label(paper.key), "[" + str(i + 1) + "]")
 ]
