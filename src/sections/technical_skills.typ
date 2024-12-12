@@ -4,7 +4,7 @@
 #let join_with_diamonds(items) = {
   for i in range(items.len()) {
     [#items.at(i)]
-    if i != items.len() - 1 [#h(0.3em)#diamond()#h(0.3em)]
+    if i != items.len() - 1 [#diamond()]
   }
 }
 

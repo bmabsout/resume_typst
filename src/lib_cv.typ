@@ -1,15 +1,20 @@
 #import "lib.typ": *
+#import "@preview/cetz:0.2.0"
+#import "@preview/fontawesome:0.1.0": *
+
+// Document-wide settings
+#set text(font: fonts.body)
 
 // Global styling configuration
 #let cv_styling = (
   spacing: (
     section: 1.2em,     // Spacing between sections (largest)
-    element: 1em,     // Spacing between entries/subsections (medium)
+    element: 1.2em,     // Spacing between entries/subsections (medium)
     paragraph: 0.6em,   // Spacing between lines in paragraphs (smallest)
   ),
   insets: (
     section: (left: 1.2em, top: 1.2em),
-    inner: (left: 0.5em, top: 0.4em),
+    inner: (left: 0.8em, top: 0.8em),
   ),
   
   header: (
@@ -19,9 +24,9 @@
       weight: "medium",
     ),
     contact: (
-      text: (size: 11pt),
+      text: (size: 12pt),
       icon: (
-        size: 11pt,
+        size: 12pt,
         width: 1.6em,
       ),
       box: (
@@ -49,6 +54,15 @@
     heading: (weight: "bold"),
   )
 )
+
+// Basic utility functions
+#let labeled(label, content) = {
+  [#text(weight: 600)[#label:] #content]
+}
+
+#let links(..items) = {
+  [\ #items.pos().join([#diamond()])]
+}
 
 // Basic building blocks
 #let cv_stack(..children) = {
@@ -112,12 +126,9 @@
       weight: cv_styling.subsection.weight,
       fill: primary_color.lighten(20%),
     )[#subsection.title],
-    block(
-      inset: cv_styling.insets.inner,
       par(leading: cv_styling.spacing.paragraph)[
-        #subsection.body
-      ]
-    ),
+      #subsection.body
+    ],
     inset: cv_styling.insets.inner
   )
 }
@@ -137,13 +148,10 @@
   
   cv_titled_block(
     text(weight: cv_styling.entry.heading.weight, heading),
-    block(
-      inset: cv_styling.insets.inner,
-      par(leading: cv_styling.spacing.paragraph)[
-        #body
-      ]
-    ),
-    inset: cv_styling.insets.inner
+    par(leading: cv_styling.spacing.paragraph)[
+      #body
+    ],
+    inset: if body != [] { cv_styling.insets.inner } else { (left: 0em, top: 0em) }
   )
 }
 
@@ -179,18 +187,18 @@
               name
             }
           })
-          .join([ #diamond() ]))
+          .join([#diamond()]))
         #h(1fr)
         *#pub.year*
       ],
       // Title with proper wrapping
       par(leading: cv_styling.spacing.paragraph)[
         #emph[#pub.title]
+        #links(
+          labeled(pub.venue, pub.doi),
+          ..pub.extra_links.map((x) => labeled(..x))
+        )
       ],
-      // Venue and link
-      [
-        *#pub.venue* #h(1fr) #text(fill: primary_color)[#pub.link]
-      ]
     )
   )
 }
@@ -245,4 +253,5 @@
     #contact_info
     #v(cv_styling.header.vertical_padding)
   ]
-} 
+}
+  

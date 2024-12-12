@@ -1,6 +1,7 @@
 #import "../lib_cv.typ": *
 #import "../publications.typ": publications, labels
 
+
 #let publications_section = cv_section("PUBLICATIONS", {
   stack(
     stack(
@@ -14,6 +15,6 @@
       })
     ),
     v(0.8em),
-    text(size: 8pt, fill: shade_fg.lighten(40%))[\* Authors contributed equally]
+    [#text(size: 8pt, fill: shade_fg.lighten(40%))[#text(size:12pt, "*") Authors contributed equally]]
   )
 }) 

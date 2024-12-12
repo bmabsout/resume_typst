@@ -187,7 +187,7 @@
   weight: 700
 )[#it]
 
-#let diamond(squeeze: 0%) = box(
+#let diamond(squeeze: 0%) = [#h(0.4em)#box(
   baseline: -10%,
   polygon(
     fill: shade_color,
@@ -199,4 +199,4 @@
   ),
   width: 0.4em,
   height: 0.4em,
-)
+)#h(0.4em)]

@@ -5,11 +5,15 @@
 #import "src/sections/research_interests.typ": research_interests
 #import "src/sections/publications.typ": publications_section
 #import "src/sections/ongoing_research.typ": ongoing_research
-#import "src/sections/research_experience.typ": research_experience
-#import "src/sections/teaching_experience.typ": teaching_experience
-#import "src/sections/service_leadership.typ": service_leadership
+#import "src/sections/work_experience.typ": work_experience
 #import "src/sections/selected_projects.typ": selected_projects
+#import "src/sections/mentorship.typ": mentorship
+#import "src/sections/academic_services.typ": academic_services
+#import "src/sections/press_releases.typ": press_releases
 #import "src/sections/technical_skills.typ": technical_skills_section
+#import "src/sections/personal_info.typ": personal_info
+
+#set document(title: "Bassel El Mabsout - Curriculum Vitae")
 
 // Document settings
 #set page(
@@ -20,7 +24,7 @@
 #set text(font: fonts.body)
 #set par(leading: 1em)
 #set block(spacing: 0em)
-#show link: underline
+#show link: it => text(fill: primary_color, underline(it))
 
 // Header
 #v(-2em)
@@ -30,8 +34,8 @@
     (icon: "phone", text: "+1 (857) 939-8769"),
     (icon: "location", text: "Boston, MA, USA"),
     (icon: "email", text: link("mailto:bmabsout@bu.edu")),
-    (icon: "globe", text: link("https://bmabsout.com")),
-    (icon: "github", text: link("https://github.com/bmabsout")),
+    (icon: "globe", text: link("https://bmabsout.com")[bmabsout.com]),
+    (icon: "github", text: link("https://github.com/bmabsout")[github.com/bmabsout]),
     (icon: "scholar", text: link("https://scholar.google.com/citations?user=Rxv9W98AAAAJ")[Google Scholar (Rxv9W98)])
   ))
 )
@@ -42,9 +46,11 @@
   research_interests,
   publications_section,
   ongoing_research,
-  research_experience,
-  teaching_experience,
-  service_leadership,
   selected_projects,
-  technical_skills_section
+  work_experience,
+  mentorship,
+  academic_services,
+  press_releases,
+  technical_skills_section,
+  personal_info
 ) 

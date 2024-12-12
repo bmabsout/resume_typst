@@ -1,5 +1,6 @@
 #import "src/lib.typ": *
 
+#set document(title: "Bassel El Mabsout - Resume")
 // Main document settings
 #set page(
   margin: (x: 1.15cm, y: 0.5cm),

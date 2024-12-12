@@ -1,6 +1,6 @@
 // Enable heading numbering
+#set document(title: "test")
 #set heading(numbering: "1.")
-
 // Test automatic numbering with labels and links
 #let papers = (
   (title: "Paper A", key: "a", index: "1"),
