@@ -3,7 +3,7 @@
 #let work_experience = cv_section("WORK EXPERIENCE", {
   cv_entries((
     cv_entry(
-      [*Freelancer* #text(style: "italic", weight: "regular")[Scanman] #h(1fr) 2020 -- Present],
+      [*Founder* #text(style: "italic", weight: "regular")[Scanman] #h(1fr) 2020 -- Present],
       [Developed a full-stack inventory management system combining React Native barcode scanning and real-time web dashboard for inventory tracking. System acquired by Meathouse for supply chain management. Managed 2 developers.]
     ),
     cv_entry(

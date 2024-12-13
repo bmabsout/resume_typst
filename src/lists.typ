@@ -4,7 +4,7 @@
     "Embedded Systems",
     "Type Theory",
     "Metaheuristics",
-    "Control systems"
+    "Control Systems"
   ),
   
   peer_review_venues: (
@@ -27,12 +27,16 @@
       "C++",
       "Go",
       "Java",
-      "Python",
     ),
     functional: (
       "Haskell",
       "F#",
       "Clojure"
+    ),
+    scripting: (
+      "Python",
+      "Bash",
+      "Fish",
     ),
     "theorem provers": (
       "Rocq",
@@ -44,12 +48,9 @@
       "TypeScript",
       "Elm",
     ),
-    development: (
-      "SQL",
+    "build systems": (
       "Nix",
       "Make",
-      "Fish",
-      "Bash",
     ),
     graphics: (
       "GLSL",
@@ -70,21 +71,23 @@
       "TensorFlow",
       "PyTorch",
       "JAX",
-      "Keras"
-    ),
-    scientific: (
+      "Keras",
       "NumPy",
       "SciPy",
-      "Pandas"
     ),
     robotics: (
+      "Stable Baselines",
       "Spinning Up",
       "PyBullet",
       "Gurobi"
     ),
-    web: (
+    databases: (
+      "PostgreSQL",
+      "Firebase",
+      "Pandas"
+    ),
+    cross-platform: (
       "React Native",
-      "Firebase"
     ),
     haskell: (
       "Megaparsec",
@@ -110,10 +113,8 @@
     ),
     hardware: (
       "Soldering",
-      "Oscilloscope",
-      "Multimeter",
-      "Lazer Cutter",
-      "Embedded Systems"
+      "Electrical Tools",
+      "Development Boards"
     )
   )
 )

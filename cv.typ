@@ -12,6 +12,8 @@
 #import "src/sections/press_releases.typ": press_releases
 #import "src/sections/technical_skills.typ": technical_skills_section
 #import "src/sections/personal_info.typ": personal_info
+#import "src/sections/proposal_writing.typ": proposal_writing
+#import "src/sections/honors.typ": honors
 
 #set document(title: "Bassel El Mabsout - Curriculum Vitae")
 
@@ -46,11 +48,13 @@
   research_interests,
   publications_section,
   ongoing_research,
+  proposal_writing,
+  press_releases,
   selected_projects,
   work_experience,
   mentorship,
   academic_services,
-  press_releases,
+  honors,
   technical_skills_section,
   personal_info
 ) 

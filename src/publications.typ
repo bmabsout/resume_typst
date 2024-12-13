@@ -9,16 +9,18 @@
     venue: "ACM Trans. Cyber-Phys. Syst., 5(4)",
     year: 2021,
     doi: link("https://doi.org/10.1145/3466618")[10.1145/3466618],
+    citations: 23,
     extra_links: (
       ("website", link("https://cpslab.bu.edu/projects/httyq/")[cpslab.bu.edu/projects/httyq]),
     )
   ),
-  regularizing: (
+  caps: (
     authors: "Mabsout B.* and Mysore S.* and Saenko K. and Mancuso R.",
     title: [Regularizing Action Policies for Smooth Control with Reinforcement Learning],
     venue: "ICRA",
     year: "2021",
     doi: link("https://doi.org/10.1109/ICRA48506.2021.9561138")[10.1109/ICRA48506.2021.9561138],
+    citations: 83,
     extra_links: (
       ("website", link("http://cpslab.bu.edu/projects/caps/")[cpslab.bu.edu/projects/caps/]),
     )
@@ -29,6 +31,7 @@
     venue: "IEEE CoG",
     year: "2021",
     doi: link("https://doi.org/10.1109/CoG52621.2021.9619008")[10.1109/CoG52621.2021.9619008],
+    citations: 12,
     extra_links: ()
   ),
   thesis: (

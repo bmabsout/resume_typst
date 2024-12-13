@@ -8,7 +8,7 @@
     ),
     cv_entry(
       [*Languages* #h(1fr)],
-      [English (Fluent), Arabic (Native), Portuguese (Intermediate)]
+      [English (Fluent), Arabic (Native), French (Intermediate)]
     ),
   ))
 }) 

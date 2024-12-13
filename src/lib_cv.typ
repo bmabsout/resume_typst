@@ -73,7 +73,9 @@
 }
 
 #let cv_titled_block(title, content, inset: none) = {
-  set block(spacing: 0em)
+  set block(
+    spacing: 0em
+  )
   set par(leading: 0em)
   stack(
     spacing: 0em,
@@ -158,7 +160,7 @@
 #let cv_entries(entries) = {
   stack(
     spacing: cv_styling.spacing.element,
-    ..entries
+    ..entries.map(entry => block(breakable: false, entry))
   )
 }
 
@@ -177,7 +179,6 @@
     [#lab.label],
     stack(
       spacing: cv_styling.spacing.paragraph,
-      // Authors and year first
       [
         #(pub.authors.split(" and ")
           .map(name => {
@@ -189,9 +190,8 @@
           })
           .join([#diamond()]))
         #h(1fr)
-        *#pub.year*
+        *#(if (pub.at("citations", default:0) != 0) [#smallcaps[*(\#citations: #pub.citations) *]])#pub.year*
       ],
-      // Title with proper wrapping
       par(leading: cv_styling.spacing.paragraph)[
         #emph[#pub.title]
         #links(
@@ -246,7 +246,7 @@
   [
     #stack(
       align(left, text(..cv_styling.header.name, name)),
-      align(bottom+right, text(size: 20pt, "Curriculum Vitae", style: "italic", font: fonts.body)),
+      align(bottom+right, text(size: 15pt, [Last updated: #datetime.today().display("[month repr:long] [day], [year]")], style: "italic", font: fonts.body)),
       dir: ltr
     )
     #v(cv_styling.header.vertical_padding)
