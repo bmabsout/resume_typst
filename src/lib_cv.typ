@@ -72,9 +72,40 @@
   )
 }
 
+#let titled_list(
+  title,
+  items,
+  inset,
+  spacing,
+) = {
+  set block(spacing: 0em)
+  
+  // Only title and first item are unbreakable
+  block(breakable: false)[
+    #title
+    #if items != () {
+      pad(..inset)[#items.at(0)]
+    }
+  ]
+  
+  // Rest of items can break
+  if items.len() > 1 {
+    v(spacing)
+    pad(
+      left: inset.left,
+      stack(
+        spacing: spacing,
+        ..items.slice(1)
+      )
+    )
+  }
+}
+
+
 #let cv_titled_block(title, content, inset: none) = {
   set block(
-    spacing: 0em
+    spacing: 0em,
+    breakable: false
   )
   set par(leading: 0em)
   stack(
@@ -97,26 +128,26 @@
   )
 )
 
-// CV Components
-#let cv_section(title, body) = {
-  cv_titled_block(
-    text(
+#let cv_section_list(title, items) = {
+    titled_list(
+      text(
       font: cv_styling.section.font,
       size: cv_styling.section.size,
       weight: cv_styling.section.weight,
       fill: primary_color,
     )[#smallcaps(title)],
-    body,
-    inset: cv_styling.insets.section
-  )
+      items,
+      cv_styling.insets.section,
+      cv_styling.spacing.element
+    )
 }
 
 #let cv_sections(..sections) = {
   stack(
     spacing: cv_styling.spacing.section,
-    long_line,
+    // long_line,
     ..sections.pos().intersperse(long_line),
-    long_line
+    // long_line
   )
 }
 
@@ -139,6 +170,20 @@
   stack(
     spacing: cv_styling.spacing.element,
     ..subsections.map(cv_subsection)
+  )
+}
+
+#let cv_subsections_list(title, subsections) = {
+  titled_list(
+    text(
+      font: cv_styling.subsection.font,
+      size: cv_styling.subsection.size,
+      weight: cv_styling.subsection.weight,
+      fill: primary_color.lighten(20%),
+    )[#title],
+    subsections,
+    cv_styling.insets.inner,
+    cv_styling.spacing.element
   )
 }
 
@@ -169,7 +214,7 @@
   publications: none,
   labels: none,
   key: none,
-) = {
+) = {// this can probably rewritten to ignore label length, instead of using grid
   let pub = publications.at(key)
   let lab = labels.at(key)
   
@@ -177,9 +222,11 @@
     columns: (auto, 1fr),
     gutter: 1em,
     [#lab.label],
-    stack(
-      spacing: cv_styling.spacing.paragraph,
-      [
+    block(
+      breakable: false,
+      stack(
+        spacing: cv_styling.spacing.paragraph,
+        [
         #(pub.authors.split(" and ")
           .map(name => {
             if name.contains("Mabsout") {
@@ -199,6 +246,7 @@
           ..pub.extra_links.map((x) => labeled(..x))
         )
       ],
+    )
     )
   )
 }
@@ -251,7 +299,7 @@
     )
     #v(cv_styling.header.vertical_padding)
     #contact_info
-    #v(cv_styling.header.vertical_padding)
+    // #v(cv_styling.header.vertical_padding)
   ]
 }
   

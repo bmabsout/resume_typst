@@ -1,7 +1,7 @@
 #import "../lib_cv.typ": *
 
-#let education = cv_section("EDUCATION", {
-  cv_entries((
+#let education = cv_section_list("EDUCATION",
+  (
     cv_entry(
       [*Ph.D. candidate in Computer Science* #h(1fr) 2018 -- May 2025],
       [_Boston University_ \
@@ -16,5 +16,5 @@
       [*B.S. in Computer Science* #h(1fr) 2012 -- 2015],
       [_American University of Beirut_]
     )
-  ))
-}) 
+  )
+)

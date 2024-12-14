@@ -19,7 +19,7 @@
 
 // Document settings
 #set page(
-  margin: (x: 2.5cm, y: 2.5cm),
+  margin: (x: 2.5cm, y: 2cm),
   paper: "us-letter",
 )
 
@@ -41,7 +41,7 @@
     (icon: "scholar", text: link("https://scholar.google.com/citations?user=Rxv9W98AAAAJ")[Google Scholar (Rxv9W98)])
   ))
 )
-
+#v(1em)
 // Main content
 #cv_sections(
   education,

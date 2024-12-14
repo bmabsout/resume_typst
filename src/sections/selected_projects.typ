@@ -1,7 +1,7 @@
 #import "../lib_cv.typ": *
 
-#let selected_projects = cv_section("SELECTED PROJECTS", {
-  cv_entries((
+#let selected_projects = cv_section_list("SELECTED PROJECTS",
+  (
     cv_entry(
       [*Stochastic dynamics learning* #h(1fr) BU/MIT],
       [Achieving safer learned model-based control requires accurate models, given most real-world systems are stochastic, we built Generative Adversarial Networks which modeling the distribution of the system's trajectories
@@ -26,5 +26,5 @@
       [I created a programming languages focused blog exploring geometry, automatic differentiation, and dependently typed vector construction. The blog garnered #link("https://news.ycombinator.com/item?id=15769035")[interest] and was featured on #link("https://haskellweekly.news/issue/82.html")[Haskell Weekly]
       #links(labeled("blog", link("https://bmabsout.com/blog")[bmabsout.com/blog]))]
     )
-  ))
-}) 
+  )
+)

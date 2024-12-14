@@ -27,9 +27,8 @@
   ))
 }
 
-#let technical_skills_section = cv_section("TECHNICAL SKILLS", {
-  stack(
-    spacing: cv_styling.spacing.element,
+#let technical_skills_section = cv_section_list("TECHNICAL SKILLS",
+  (
     format_category((
       [Programming Languages],
       skills.languages
@@ -43,4 +42,4 @@
       skills.tools
     ))
   )
-}) 
+)

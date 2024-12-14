@@ -1,10 +1,10 @@
 #import "../lib_cv.typ": *
 
-#let work_experience = cv_section("WORK EXPERIENCE", {
-  cv_entries((
+#let work_experience = cv_section_list("WORK EXPERIENCE",
+  (
     cv_entry(
       [*Founder* #text(style: "italic", weight: "regular")[Scanman] #h(1fr) 2020 -- Present],
-      [Developed a full-stack inventory management system combining React Native barcode scanning and real-time web dashboard for inventory tracking. System acquired by Meathouse for supply chain management. Managed 2 developers.]
+      [Developed a full-stack inventory management system combining React Native barcode scanning and real-time web dashboard for inventory tracking. System acquired by Meathouse for supply chain management.]
     ),
     cv_entry(
       [*Cofounder/CTO* #text(style: "italic", weight: "regular")[Zahera] #h(1fr) 2018 -- 2022],
@@ -18,5 +18,5 @@
       [*Software Developer* #text(style: "italic", weight: "regular")[CCC] #h(1fr) 2015 -- 2017],
       [Core team member of C3D, a leading 3D construction project control application designed for energy projects. I performed optimizations that improved performance by 2000%, refactored main architectural components of the huge codebase increasing maintainabilility and type-safety, and implemented bug fixes in Java. I also contributed to #link("https://github.com/sshahine/JFoenix")[JFoenix] #links(labeled("website", link("http://www.cctintl.com/solutions/c3d-project-control.html")[cctintl.com/solutions/c3d-project-control.html]))]
     )
-  ))
-}) 
+  )
+)

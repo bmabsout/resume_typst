@@ -1,7 +1,7 @@
 #import "../lib_cv.typ": *
 
-#let personal_info = cv_section("PERSONAL INFORMATION", {
-  cv_entries((
+#let personal_info = cv_section_list("PERSONAL INFORMATION",
+  (
     cv_entry(
       [*Nationalities* #h(1fr)],
       [Lebanese and Portuguese]
@@ -10,5 +10,5 @@
       [*Languages* #h(1fr)],
       [English (Fluent), Arabic (Native), French (Intermediate)]
     ),
-  ))
-}) 
+  )
+)

@@ -1,15 +1,14 @@
 #import "../lib_cv.typ": *
 #import "publications.typ": labels
 
-#let press_releases = cv_section("PRESS RELEASES", {
-  stack(
-    spacing: cv_styling.spacing.element,
-    cv_subsection((
-      title: "Presentations",
-      body: cv_entries((
+#let press_releases = cv_section_list("MEDIA",
+  (
+    cv_subsections_list(
+      "Presentations",
+      (
         cv_entry(
-          [*Wallenberg AI, Autonomous Systems and Software Program* #h(1fr) #link("https://wasp-sweden.org/")["wasp-sweden.org"] #h(0.5em) 2023],
-          [Presented my research to the WASP group on increasing controller robustness and reducing power consumption on complex robots]
+          [*WASP* #h(1fr) #link("https://wasp-sweden.org/")["wasp-sweden.org"] #h(0.5em) 2023],
+          [Presented my research to the Wallenberg AI, Autonomous Systems and Software Program group on increasing controller robustness and reducing power consumption on complex robots]
         ),
         cv_entry(
           [*Galois Inc.* #h(1fr) #link("https://galois.com/blog/2023/07/achieving-robustness-in-learned-control/")["Achieving Robustness in Learned Control"] #h(0.5em) 2023],
@@ -29,23 +28,23 @@
         ),
         cv_entry(
           [*ICRA* #h(1fr) 2021],
-          [Presented my paper on regularizing action policies for smooth control]
+          [Presented my paper on regularizing action policies for smooth control #labels.caps.ref]
         ),
         cv_entry(
           [*CoG* #h(1fr) 2021],
-          [Presented work on minimizing actor sizes for real-time control in actor-critic RL]
+          [Presented work on minimizing actor sizes for real-time control in actor-critic RL #labels.honey.ref]
         ),
-      ))
-    )),
-    cv_subsection((
-      title: "News Articles",
-      body: grid(
+      )
+    ),
+    cv_subsections_list(
+      "News Articles",
+      (grid(
         columns: (auto, 1fr, auto),
         gutter: 1em,
         row-gutter: 0.5em,
         [*Haskell Weekly*], align(left)[#link("https://haskellweekly.news/issue/82.html")["Issue 82"]], [2017],
         [*BU Hub Innovation Center*], align(left)[#link("https://www.bu.edu/hic/2021/03/17/simplifying-machine-learning-for-drone-flight-control/")["Simplifying Machine Learning for Drone Flight Control"]], [2021],
-      )
-    ))
+      ),)
+    ),
   )
-}) 
+)

@@ -1,13 +1,13 @@
 #import "../lib_cv.typ": *
 #import "../lists.typ": research
 
-#let academic_services = cv_section("ACADEMIC SERVICES", {
-  cv_subsections((
-    (
+#let academic_services = cv_section_list("ACADEMIC SERVICES", 
+  (
+    cv_subsection((
       title: [Peer Review Venues],
       body: [#research.peer_review_venues.join([#diamond()])]
-    ),
-    (
+    )),
+    cv_subsection((
       title: [Teaching Experience],
       body: cv_entries((
         cv_entry(
@@ -24,6 +24,6 @@
           space design, clustering algorithms, classification methods (decision trees, SVM, kNN), regression techniques, neural networks. Supervised industry-partnered projects such as fraud detection for Painting with Data, aviation safety analysis for ACAS, and a project for the City of Boston.]
         ),
       ))
-    )
-  ))
-}) 
+    ))
+  )
+) 

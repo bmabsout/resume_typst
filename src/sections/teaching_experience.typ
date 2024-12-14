@@ -1,7 +1,7 @@
 #import "../lib_cv.typ": *
 
-#let teaching_experience = cv_section("TEACHING EXPERIENCE", {
-  cv_entries((
+#let teaching_experience = cv_section_list("TEACHING EXPERIENCE",
+  (
     cv_entry(
       [*Course Instructor - CS 654* #h(1fr) 2023],
       [#h(1em) _Boston University_ \

@@ -9,7 +9,6 @@
   
   peer_review_venues: (
     "ICLR",
-    "ICRA", 
     "ROBOT",
     "EMSOFT",
     "COG",

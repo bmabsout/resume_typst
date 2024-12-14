@@ -1,7 +1,7 @@
 #import "../lib_cv.typ": *
 
-#let ongoing_research = cv_section("ONGOING RESEARCH", {
-  cv_entries((
+#let ongoing_research = cv_section_list("ONGOING RESEARCH", 
+  (
     cv_entry(
       [*Anchored Learning for On-the-Fly Adaptation* #h(1fr) Submitted],
       [A novel strategy for enhancing the robustness of reinforcement learning agents in crossing the sim-to-real gap. Our method maximizes multiple Q-values across domains, ensuring high performance in both simulation and reality, achieving a near-50% reduction in power consumption while maintaining controllable, stable flight #links(labeled("arXiv", link("https://arxiv.org/abs/2301.06987")[2301.06987]), labeled("github", link("https://github.com/bmabsout/AnchoredActorCritic")[bmabsout/AnchoredActorCritic]))]
@@ -23,4 +23,3 @@
       [In order to maximize the safety and performance of autonomous vehicles, we propose a risk-aware path planning framework that uses 2D-Gaussian mixtures. We propose an efficient method for computing the risk of trajectories allowing for real-time sampling and optimization on computationally constrained F1tenth vehicles #links(labeled("github", link("https://github.com/bmabsout/gaussian_racer_jax/tree/webgpu")[bmabsout/gaussian_racer_jax]))]
     ),
   ))
-}) 

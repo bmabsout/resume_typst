@@ -1,8 +1,8 @@
 #import "../lib_cv.typ": *
 #import "publications.typ": labels
 
-#let mentorship = cv_section("Mentorship", {
-  cv_entries((
+#let mentorship = cv_section_list("Mentorship",
+  (
     cv_entry(
       [*F1Tenth Racing Team* #text(style: "italic", weight: "regular")[Boston University] #h(1fr) 2024],
       [Mentored a team of 11 students (Koneshka Bandyopadhyay, Muhammad Aseef Imran, Shahnawaz Fakir, Georgina Focia, Ruihang Liu, Hyunjin Jung, Jiawei Sun, Patrick Kuzdzal, Yann Arif, Jiyayi Shen) in developing an autonomous racing platform. Led the development of simulation environments, classic control algorithms, computer vision systems, and hardware integration. The team successfully competed and won second place in an official F1Tenth competition. We developed novel approaches to autonomous racing including obstacle avoidance and path planning algorithms, as well as Guassian-mixture-based control methods, and explored Gaussian-splatting based localization.]
@@ -35,5 +35,5 @@
       [*Scanman* #text(style: "italic", weight: "regular")[Founder] #h(1fr) 2022],
       [Mentored two developers in development on live real-time data processing, database design, and program architecture. Provided guidance on algorithm implementations, code optimization, and full-stack development.]
     ),
-  ))
-}) 
+  )
+)
