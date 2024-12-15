@@ -1,5 +1,5 @@
 #import "../lib_cv.typ": *
-#import "publications.typ": labels
+#import "publications.typ": labels_n_refs
 
 #let mentorship = cv_section_list("Mentorship",
   (
@@ -9,7 +9,7 @@
     ),
     cv_entry(
       [*Unified Local-Cloud Decision-Making via Reinforcement Learning* #text(style: "italic", weight: "regular")[Boston University] #h(1fr) 2023],
-      [Mentored Kathakoli Sengupta and Sandesh Bharadwaj in developing UniLCD, a hybrid inference framework for local-cloud collaboration in mobile robotics. Guided the implementation of the complete control pipeline in CARLA simulator and guided the design of the reward structure for the reinforcement learning system following #labels.quadrotor.ref, contributing to a 35% performance improvement over baselines. Their work was accepted at ECCV 2024. #links(
+      [Mentored Kathakoli Sengupta and Sandesh Bharadwaj in developing UniLCD, a hybrid inference framework for local-cloud collaboration in mobile robotics. Guided the implementation of the complete control pipeline in CARLA simulator and guided the design of the reward structure for the reinforcement learning system following #labels_n_refs.quadrotor.ref, contributing to a 35% performance improvement over baselines. Their work was accepted at ECCV 2024. #links(
         labeled("paper", link("https://unilcd.github.io/")[UniLCD]),
         labeled("Kathakoli (web)", link("https://diasengupta.github.io/")[diasengupta.github.io]),
         labeled("Sandesh (linkedin)", link("https://www.linkedin.com/in/sandeshbharadwaj97/")[bharadwaj97])

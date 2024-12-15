@@ -16,12 +16,15 @@
 
 // Create the labeled headings
 #for paper in papers [
+  // #v(1fr, weak: true)
   = #paper.title #label(paper.key)
+  // #v(1fr, weak: true)
 ]
 
 // Test different ways to reference
 #for paper in papers [
   - Link to #paper.title: #link(label(paper.key), "[" + paper.index + "]")
+  #v(1fr, weak: true)
 ]
 
 // Or we could use the loop index

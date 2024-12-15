@@ -9,7 +9,7 @@
 #let cv_styling = (
   spacing: (
     section: 1.2em,     // Spacing between sections (largest)
-    element: 1.2em,     // Spacing between entries/subsections (medium)
+    element: 1em,     // Spacing between entries/subsections (medium)
     paragraph: 0.6em,   // Spacing between lines in paragraphs (smallest)
   ),
   insets: (
@@ -38,14 +38,16 @@
   ),
   
   section: (
+    fill: primary_color,
     font: fonts.sans,
     size: 13pt,
     weight: "bold",
   ),
   
   subsection: (
+    fill: primary_color.lighten(20%),
     font: fonts.sans,
-    size: 12pt,
+    size: 13pt,
     weight: "medium",
   ),
   
@@ -64,13 +66,6 @@
   [\ #items.pos().join([#diamond()])]
 }
 
-// Basic building blocks
-#let cv_stack(..children) = {
-  stack(
-    spacing: cv_styling.spacing.element,
-    ..children.pos()
-  )
-}
 
 #let titled_list(
   title,
@@ -122,33 +117,37 @@
 #let long_line = line(
   length: 100%,
   stroke: (
-    paint: primary_color,
-    thickness: 1pt,
-    dash: "solid"
+    paint: shade_line.lighten(50%),
+    thickness: 3pt,
+    dash: ("dot", 6pt),
+    cap: "round",
   )
 )
 
+#let stack_unbreakable(first, last, spacing, inset, children) = {
+  block(breakable: false)[#first#block(inset: inset)[#children.first()]]
+  v(spacing, weak:true)
+  children.slice(1, -1).map(child => block(inset: (left: inset.left))[#child]).intersperse(v(spacing, weak:true)).reduce((x,y) => x+y)
+  v(spacing, weak:true)
+  block(breakable: false)[#block(inset: (left: inset.left))[#children.last()]#last]
+}
+
 #let cv_section_list(title, items) = {
-    titled_list(
-      text(
-      font: cv_styling.section.font,
-      size: cv_styling.section.size,
-      weight: cv_styling.section.weight,
-      fill: primary_color,
-    )[#smallcaps(title)],
-      items,
-      cv_styling.insets.section,
-      cv_styling.spacing.element
-    )
+  // long_line+v(1fr, weak:true)+v(cv_styling.spacing.section)
+  stack_unbreakable(
+    long_line+v(cv_styling.spacing.section)+text(..cv_styling.section, upper(title)),
+    v(cv_styling.spacing.section)+long_line,
+    cv_styling.spacing.section,
+    cv_styling.insets.section,
+    items
+  )
+  // v(1fr, weak:true)+
 }
 
 #let cv_sections(..sections) = {
-  stack(
-    spacing: cv_styling.spacing.section,
-    // long_line,
-    ..sections.pos().intersperse(long_line),
-    // long_line
-  )
+  // stack(..sections)
+  (..sections.pos()).reduce((x,y) => x+y)
+  v(100fr)
 }
 
 #let cv_subsection(subsection) = {
@@ -166,21 +165,9 @@
   )
 }
 
-#let cv_subsections(subsections) = {
-  stack(
-    spacing: cv_styling.spacing.element,
-    ..subsections.map(cv_subsection)
-  )
-}
-
 #let cv_subsections_list(title, subsections) = {
   titled_list(
-    text(
-      font: cv_styling.subsection.font,
-      size: cv_styling.subsection.size,
-      weight: cv_styling.subsection.weight,
-      fill: primary_color.lighten(20%),
-    )[#title],
+    text(..cv_styling.subsection, title),
     subsections,
     cv_styling.insets.inner,
     cv_styling.spacing.element
@@ -211,23 +198,19 @@
 
 // Publication-specific components
 #let cv_publication_entry(
-  publications: none,
-  labels: none,
-  key: none,
+  publication,
+  label,
 ) = {// this can probably rewritten to ignore label length, instead of using grid
-  let pub = publications.at(key)
-  let lab = labels.at(key)
-  
   grid(
     columns: (auto, 1fr),
     gutter: 1em,
-    [#lab.label],
+    [#label],
     block(
       breakable: false,
       stack(
         spacing: cv_styling.spacing.paragraph,
         [
-        #(pub.authors.split(" and ")
+        #(publication.authors.split(" and ")
           .map(name => {
             if name.contains("Mabsout") {
               [*#name*]
@@ -237,13 +220,13 @@
           })
           .join([#diamond()]))
         #h(1fr)
-        *#(if (pub.at("citations", default:0) != 0) [#smallcaps[*(\#citations: #pub.citations) *]])#pub.year*
+        *#(if (publication.at("citations", default:0) != 0) [#smallcaps[*(\#citations: #publication.citations) *]])#publication.year*
       ],
       par(leading: cv_styling.spacing.paragraph)[
-        #emph[#pub.title]
+        #emph[#publication.title]
         #links(
-          labeled(pub.venue, pub.doi),
-          ..pub.extra_links.map((x) => labeled(..x))
+          labeled(publication.venue, publication.doi),
+          ..publication.extra_links.map((x) => labeled(..x))
         )
       ],
     )

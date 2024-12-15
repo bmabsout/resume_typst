@@ -18,7 +18,7 @@
     ),
     cv_entry(
       [*Simplifying the complexity of computing a Nash-#text(size: 14pt,sym.epsilon) equilibrium* #h(1fr) Complexity Theory -- CS535],
-      [This term paper simplifies an existing proof of the complexity class specifying the run-time of finding approximate Nash equilibria
+      [We simplify an existing proof of the complexity class specifying the run-time of finding Nash-#text(size: 14pt,sym.epsilon) equilibria
       #links(labeled("preprint", link("https://github.com/bmabsout/Nash-complexity/blob/main/NashComplexity.pdf")[tinyurl.com/nash-complexity]))]
     ),
     cv_entry(

@@ -7,12 +7,12 @@
       [A novel strategy for enhancing the robustness of reinforcement learning agents in crossing the sim-to-real gap. Our method maximizes multiple Q-values across domains, ensuring high performance in both simulation and reality, achieving a near-50% reduction in power consumption while maintaining controllable, stable flight #links(labeled("arXiv", link("https://arxiv.org/abs/2301.06987")[2301.06987]), labeled("github", link("https://github.com/bmabsout/AnchoredActorCritic")[bmabsout/AnchoredActorCritic]))]
     ),
     cv_entry(
-      [*Expressive Reinforcement Learning via Algebraic Q-Value Scalarization* #h(1fr) Submitting],
-      [We introduce Algebraic Q-value Scalarization (AQS), a novel domain-specific language for specifying policy behavior. AQS generalizes linear utilities by employing the power-mean as a logical operator over normalized Q-values. By specifying how different policy objectives interact, users can intuitively design policy losses #links(labeled("github", link("https://github.com/bmabsout/AQS")[bmabsout/AQS]))]
+      [*Expressive Reinforcement Learning via Algebraic Q-Value Scalarization (AQS)* #h(1fr) Submitting],
+      [We introduce *AQS*, a novel domain-specific language for specifying policy behavior. *AQS* generalizes linear utilities by employing the power-mean as a logical operator over normalized Q-values. By specifying how different policy objectives interact, users can intuitively design policy losses #links(labeled("github", link("https://github.com/bmabsout/AQS")[bmabsout/AQS]))]
     ),
     cv_entry(
       [*Scrap Your Schedules with PopDescent* #h(1fr) Submitted],
-      [A novel population-based hyperparameter optimization method which adaptively controls hyperparameter selection via a normalized fitness function. The method combines the exploration benefits of evolutionary algorithms with the exploitation of gradient descent, outperforming existing methods by up to 18% in test loss #links(labeled("arXiv", link("https://arxiv.org/abs/2310.14671")[2310.14671]))]
+      [A population-based hyperparameter optimization method which adaptively controls hyperparameter selection via a normalized fitness function. The method combines the exploration benefits of evolutionary algorithms with the exploitation of gradient descent, outperforming the use of schedules by up to 18% #links(labeled("arXiv", link("https://arxiv.org/abs/2310.14671")[2310.14671]))]
     ),
     cv_entry(
       [*Adaptive Lyapunov-based controller learning* #h(1fr) Ongoing],

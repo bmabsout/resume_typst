@@ -47,7 +47,7 @@
 )
 
 // Create labels dictionary with label and reference
-#let labels = {
+#let labels_n_refs = {
   let pairs = publications.pairs().enumerate().map(((i, (key, _))) => {
     let number = [ [#(i + 1)] ]
     (key, (

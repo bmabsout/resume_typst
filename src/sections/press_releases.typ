@@ -1,5 +1,5 @@
 #import "../lib_cv.typ": *
-#import "publications.typ": labels
+#import "publications.typ": labels_n_refs
 
 #let press_releases = cv_section_list("MEDIA",
   (
@@ -16,7 +16,7 @@
         ),
         cv_entry(
           [*BU AIR* #h(1fr) #link("https://www.bu.edu/hic/centers-initiatives-labs/air/")["bu.edu/hic/centers-initiatives-labs/air"] #h(0.5em) 2022],
-          [Presented findings on reward design #labels.quadrotor.ref and minimizing actuation #labels.caps.ref for real world RL-based control]
+          [Presented findings on reward design #labels_n_refs.quadrotor.ref and minimizing actuation #labels_n_refs.caps.ref for real world RL-based control]
         ),
         cv_entry(
           [*BU Systems Seminar* #h(1fr) 2022],
@@ -28,11 +28,11 @@
         ),
         cv_entry(
           [*ICRA* #h(1fr) 2021],
-          [Presented my paper on regularizing action policies for smooth control #labels.caps.ref]
+          [Presented my paper on regularizing action policies for smooth control #labels_n_refs.caps.ref]
         ),
         cv_entry(
           [*CoG* #h(1fr) 2021],
-          [Presented work on minimizing actor sizes for real-time control in actor-critic RL #labels.honey.ref]
+          [Presented work on minimizing actor sizes for real-time control in actor-critic RL #labels_n_refs.honey.ref]
         ),
       )
     ),
