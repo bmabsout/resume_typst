@@ -1,173 +1,130 @@
-// Page settings for testing
+#import "src/lib_cv.typ": primary_color, fonts, titled_list, diamond
+
+// Core layout settings
 #set page(
   width: 5in,
   height: 4in,
   margin: (x: 0.5in, y: 0.5in),
 )
+#set block(spacing: 0pt)
+#set par(leading: 0pt)
+#set par(spacing: 0.3em)
 
-// Enable heading numbering
-#set document(title: "test")
-#set heading(numbering: "1.")
-// Test automatic numbering with labels and links
-#let papers = (
-  (title: "Paper A", key: "a", index: "1"),
-  (title: "Paper B", key: "b", index: "2")
-)
-
-// Create the labeled headings
-#for paper in papers [
-  // #v(1fr, weak: true)
-  = #paper.title #label(paper.key)
-  // #v(1fr, weak: true)
+#let pat = pattern(
+  size: (10pt, 20pt),
+  spacing: (0pt, 0pt)
+)[
+  // Your shape definition here
+  #circle(radius: 5pt, fill: black)
 ]
 
-// Test different ways to reference
-#for paper in papers [
-  - Link to #paper.title: #link(label(paper.key), "[" + paper.index + "]")
-  #v(1fr, weak: true)
-]
-
-// Or we could use the loop index
-#for (i, paper) in papers.enumerate() [
-  - Link to #paper.title: #link(label(paper.key), "[" + str(i + 1) + "]")
-]
-#let titled_list(
-  title,
-  items,
-  inset,
-  spacing,
-) = {
-  set block(spacing: 0em)
-  
-  // Only title and first item are unbreakable
-  block(breakable: false)[
-    #title
-    #if items != () {
-      pad(..inset)[#items.at(0)]
-    }
-  ]
-  
-  // Rest of items can break
-  if items.len() > 1 {
-    v(spacing)
-    pad(
-      left: inset.left,
-      stack(
-        spacing: spacing,
-        ..items.slice(1)
-      )
-    )
-  }
+#let section_line = {
+  [#line(length: 100%, stroke: 0.5pt)
+  #label("section-line")]
 }
 
 
-// Test cases for titled_list
-#let test_inset = (left: 2em, top: 1.5em)
-#let test_spacing = 1.8em
 
-= Empty list
-#titled_list(
-  [Empty List Title],
-  (),
-  test_inset,
-  test_spacing,
-)
+// Phase 1: Add thin lines between sections
+#let phase1(content) = {
+  show heading.where(level: 1): it => context {
+    let prev_headings = query(selector(heading.where(level: 1)).before(here()))
+    
+    if prev_headings.len() > 0 {
+      let prev = prev_headings.last()
+      if prev.location().page() == here().page() {
+        v(0.3em)
+        section_line
+        v(0.3em)
+      }
+    }
+    
+    block(breakable: false)[
+      #set text(fill: primary_color, font: fonts.sans, weight: "bold")
+      #it
+    ]
+  }
+  content
+}
+#text(size: 25pt)[#diamond()]
+// Phase 2: Make lines thick
+#let phase2(content) = {
+  content
+}
+#let x = [sdjfpds
+  batata
+]
+#let y = x.fields()
+#y
 
-= Single item
-#titled_list(
-  [Single Item Title],
-  ([First item],),
-  test_inset,
-  test_spacing,
-)
+#x.at("children")
 
-= Multiple items
-#titled_list(
-  [Multiple Items Title],
-  (
-    [First item],
-    [Second item],
-    [Third item with longer content that might wrap to the next line to test spacing],
-    [Fourth item],
-  ),
-  test_inset,
-  test_spacing,
-)
-
-// Test with different content types
-= Mixed content
-#titled_list(
-  text(weight: "bold")[Mixed Content],
-  (
-    [A paragraph as first item],
-    list(
-      [List item 1],
-      [List item 2],
-    ),
-    block(width: 100%, inset: 8pt, fill: rgb(240,240,240))[
-      A block element
-    ],
-  ),
-  test_inset,
-  test_spacing,
-)
-
-= Breaking behavior tests
-
-// Test 1: Long content in first item
-#titled_list(
-  [Title with long first item],
-  (
-    [This is a very long first item that should stay with the title but might need to break internally if it gets too long. Let's add even more text to make sure it's long enough to test breaking behavior.],
-    [Second item],
-    [Third item],
-  ),
-  test_inset,
-  test_spacing,
-)
-
-// Test 2: Long content in subsequent items
-#titled_list(
-  [Title with long later items],
-  (
-    [Short first item],
-    [This is a very long second item that should be able to break freely since it's not part of the unbreakable section with the title. Let's make it even longer to ensure we test the breaking behavior properly.],
-    [Another long item that should also be able to break freely. We want to make sure that items after the first one can break across pages when needed.],
-  ),
-  test_inset,
-  test_spacing,
-)
-
-// Test 3: Multiple paragraphs
-#titled_list(
-  [Title with paragraphs],
-  (
-    [First paragraph that stays with title],
-    [
-      Second paragraph that can break freely.
+#let cheese = [
+    = Test Section 1
+    First item that stays with title
+    
+    Second item that can break
+    
+    Third item that can also break
+    
+    A very long item that might need to wrap to the next line and could potentially cause a page break, let's see how it handles that situation
+    
+    Final item in this section
+    Final item in this section
+    Final item in this section
+    
+    = Test Section 2
+    First item of second section
+    
+    Second item with some content
+    
+    Third item here as well
+    
+    = Test Section 3 - Long
+    This is a very long first item that should definitely cause a page break. Let's make it really long by adding more text here. We want to make absolutely sure this will need to break across pages.
+    
+    Second item in the long section
+    
+    Third item in the long section
+    
+    Fourth item in the long section
+    
+    Fifth item in the long section
+    
+    #for n in range(6, 31) [
+      Item #n in the long section
       
-      With some extra content to make it interesting.
-      
-      And even more content to test breaking.
-    ],
-    [Final item],
-  ),
-  test_inset,
-  test_spacing,
-)
+    ]
+    
+    = Test Section 4 - Short
+    First item of a short section
+    
+    Second item
+    
+    = Test Section 5 - Mixed
+    Short first item
+    
+    This is a longer second item that might need to wrap to multiple lines depending on the available space
+    
+    Another short item
+    
+    And one final short item
+  ]
 
-// Test 4: Nested content
-#titled_list(
-  [Nested content test],
-  (
-    [First item with #text(weight: "bold")[some styled content] that stays with title],
-    list(
-      [Nested list item 1],
-      [Nested list item 2],
-      [Nested list item 3],
-    ),
-    [Final regular item],
-  ),
-  test_inset,
-  test_spacing,
-)
+#cheese.at("children")
+#type(cheese.at("children").at(1))
+#for x in cheese.at("children") {
+  if x == "heading" {
+    x
+    line(length: 100%, stroke: 0.5pt)
+  } else {
+    x
+  }
+}
+  
+
+// Apply phases
+#phase2(phase1(
+  // Test content starts here
+  cheese
+))

@@ -187,16 +187,20 @@
   weight: 700
 )[#it]
 
-#let diamond(squeeze: 0%) = [#h(0.4em)#box(
-  baseline: -10%,
-  polygon(
-    fill: shade_color,
-    stroke: shade_line,
-    (50%, 0pt),    // Top vertex
-    (100%-squeeze, 50%),   // Right vertex 
-    (50%, 100%),   // Bottom vertex
-    (squeeze, 50%)      // Left vertex
-  ),
-  width: 0.4em,
-  height: 0.4em,
-)#h(0.4em)]
+#let diamond(spacing: 0.4em) = {
+  h(spacing)
+  box(
+    baseline: -10%,
+    rotate(
+      45deg,
+      rect(
+        width: 0.4em,
+        height: 0.4em,
+        radius: 0.15em,
+        fill: shade_color,
+        stroke: 0.1em + shade_line
+      )
+    ),
+  )
+  h(spacing)
+}

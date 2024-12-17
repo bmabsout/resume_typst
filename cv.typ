@@ -21,6 +21,10 @@
 #set page(
   margin: (x: 2.5cm, y: 2cm),
   paper: "us-letter",
+  footer: context [
+    #set align(center)
+    #counter(page).display(n => text(font: fonts.body, fill: primary_color, size: 14pt)[#n])
+  ],
 )
 
 #set text(font: fonts.body)
@@ -49,8 +53,8 @@
   publications_section,
   ongoing_research,
   proposal_writing,
-  press_releases,
   selected_projects,
+  press_releases,
   work_experience,
   mentorship,
   academic_services,

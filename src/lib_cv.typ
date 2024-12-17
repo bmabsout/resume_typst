@@ -14,7 +14,7 @@
   ),
   insets: (
     section: (left: 1.2em, top: 1.2em),
-    inner: (left: 0.8em, top: 0.8em),
+    inner: (left: 1em, top: 0.8em),
   ),
   
   header: (
@@ -62,8 +62,12 @@
   [#text(weight: 600)[#label:] #content]
 }
 
+#let emphasis(content) = {
+  text(style: "italic", weight: "medium")[#content]
+}
+
 #let links(..items) = {
-  [\ #items.pos().join([#diamond()])]
+  [\ #h(-cv_styling.insets.inner.left/2)#items.pos().join([#diamond()])]
 }
 
 
@@ -135,7 +139,10 @@
 #let cv_section_list(title, items) = {
   // long_line+v(1fr, weak:true)+v(cv_styling.spacing.section)
   stack_unbreakable(
-    long_line+v(cv_styling.spacing.section)+text(..cv_styling.section, upper(title)),
+    {long_line
+    v(cv_styling.spacing.section)
+    text(..cv_styling.section, upper(title))
+    },
     v(cv_styling.spacing.section)+long_line,
     cv_styling.spacing.section,
     cv_styling.insets.section,
@@ -174,6 +181,14 @@
   )
 }
 
+#let entry_heading(l:none, m:none, r:none) = {
+  text(weight: cv_styling.entry.heading.weight, l)
+  h(0.5em)
+  text(style: "italic", m)
+  h(1fr)
+  smallcaps(lower(r))
+}
+
 #let cv_entry(heading, body) = {
   set text(
     size: cv_styling.entry.size,
@@ -181,7 +196,7 @@
   )
   
   cv_titled_block(
-    text(weight: cv_styling.entry.heading.weight, heading),
+    heading,
     par(leading: cv_styling.spacing.paragraph)[
       #body
     ],
@@ -220,14 +235,15 @@
           })
           .join([#diamond()]))
         #h(1fr)
-        *#(if (publication.at("citations", default:0) != 0) [#smallcaps[*(\#citations: #publication.citations) *]])#publication.year*
+        #smallcaps([#(if (publication.at("citations", default:0) != 0) [#smallcaps[(citations: #publication.citations) ]])#publication.year])
       ],
       par(leading: cv_styling.spacing.paragraph)[
-        #emph[#publication.title]
+        #block(inset: (left: cv_styling.insets.inner.left))[#emph[#publication.title]
         #links(
           labeled(publication.venue, publication.doi),
           ..publication.extra_links.map((x) => labeled(..x))
         )
+        ]
       ],
     )
     )
