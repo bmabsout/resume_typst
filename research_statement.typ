@@ -14,7 +14,7 @@
 
 #set text(
   font: "Libertinus Serif",
-  size: 11pt,
+  size: 10.5pt,
 )
 
 #show heading.where(level: 1): it => [
@@ -48,7 +48,7 @@ My research program has made significant contributions to reliable and efficient
 
 3. *Resource-Efficient Neural Architectures:* Published in IEEE CoG, we demonstrated that actor networks in reinforcement learning can be dramatically reduced in size (up to 99% reduction in weights) while maintaining satisfactory performance on common benchmark tasks. This breakthrough enables the deployment of learned controllers on heavily resource-constrained platforms.
 
-Building on this notion of robust learning under resource constraints, my current work extends into several other directions:
+Further extending my work on robust learning under resource constraints:
 
 4. *Sim-to-Real Adaptation:* By taking into account our capabilities in simulation and our limitations in reality, I've rethought how to frame the sim-to-real adaptation of RL policies as a multi-objective optimization problem. Without careful treatment of this issue, I've observed massive catastrophic forgetting problems in RL policies. Using what I term "anchor critics", the work shows that such issues can be completely mitigated. Additionally, we've released SWANNFlight firmware, an open-source platform that enables researchers to test adaptation techniques on real robots.
 
@@ -75,64 +75,34 @@ My research journey began at the American University of Beirut, where I first ex
 *Short-term Goals (2-5 years)*
 Building on my current research achievements, I plan to pursue several interconnected research directions, supported by specific funding opportunities:
 
-1. *Efficient Control for Resource-Constrained Robots:* I plan to advance the state-of-the-art in neural network control for under-instrumented limbed robots, focusing on:
-   - Developing HW/SW architectures for energy-efficient control
-   - Creating efficient learned runtime adaptation techniques for constrained platforms
-   - Enabling a new class of cost- and power-efficient robots
+*Efficient Control for Resource-Constrained Robots:* I plan to advance the state-of-the-art in neural network control for under-instrumented limbed robots. This work will develop HW/SW architectures for energy-efficient control while creating efficient learned runtime adaptation techniques for constrained platforms. The goal is to enable a new class of cost- and power-efficient robots that can operate reliably in resource-limited environments.
 
-2. *Sustainable Robotics:* I will explore the intersection of eco-friendly robotics and efficient computing through:
-   - Design of power-aware neural networks that maximize efficiency
-   - Integration of formal safety bounds with energy-efficient control
+*Sustainable Robotics:* I will explore the intersection of eco-friendly robotics and efficient computing by designing power-aware neural networks that maximize efficiency while integrating formal safety bounds with energy-efficient control. This research direction aims to make robotics more environmentally sustainable without compromising performance or safety.
 
-3. *Certified Survivability:* I intend on developing methods for certifiably safe and robust neural network-based controllers that can:
-   - Adapt to substantial system damages while maintaining safety guarantees
-   - Transfer learned behaviors across different robot configurations
-   - Provide formal verification of controller behavior
+*Certified Survivability:* I will develop methods for certifiably safe and robust neural network-based controllers that can adapt to substantial system damages while maintaining safety guarantees. These controllers will transfer learned behaviors across different robot configurations while providing formal verification of their behavior, ensuring reliability even under extreme conditions.
 
 *Long-term Vision (5+ years)*
-My long-term research agenda aims to revolutionize how we develop and deploy reliable robotic systems:
+My long-term research agenda aims to revolutionize how we develop and deploy reliable robotic systems through two main thrusts:
 
-1. *Theoretical Foundations:* Establish new theoretical foundations for:
-   - Provably safe adaptation in robotic systems
-   - Resource-aware learning and control
-   - Intuitive specification of robotic behaviors
-   - Formal verification of learned behaviors
+*Theoretical Foundations:* I will establish new theoretical foundations for provably safe adaptation in robotic systems, focusing on resource-aware learning and control. This work will develop frameworks for intuitive specification of robotic behaviors while enabling formal verification of learned behaviors, bridging the gap between theory and practice in robot learning.
 
-2. *Real-world Impact:* Drive the adoption of reliable robotic systems through:
-   - Development of open-source tools and frameworks
-   - Industry collaborations for practical deployment
-   - Creation of educational resources for the next generation of roboticists
+*Real-world Impact:* I will drive the adoption of reliable robotic systems through the development of open-source tools and frameworks, fostering industry collaborations for practical deployment, and creating educational resources for the next generation of roboticists. This approach ensures that theoretical advances translate into practical benefits for society.
 
 
 // = Integration with Institution
 // [...]
 
 = Broader Impacts
-My research program is deeply committed to broader impacts through education, mentorship, and technology transfer:
+I am committed to broader impacts through education, mentorship, and technology transfer:
 
 *Educational Impact*
-I have extensive experience in teaching and mentoring, having:
-- Led courses in Distributed Systems, Embedded Systems, and Data Science at Boston University
-- Developed innovative teaching materials, including a PyBullet simulation environment for teaching control fundamentals
-- Created practical, industry-relevant projects that bridge theoretical concepts with real-world applications
+My teaching experience spans core computer science courses at Boston University, including Distributed Systems, Embedded Systems, and Data Science. I've developed innovative teaching materials like the PyBullet simulation environment for teaching control fundamentals, creating practical, industry-relevant projects that bridge theoretical concepts with real-world applications.
 
 *Student Mentorship*
-I've successfully mentored diverse groups of students in various contexts:
-- Led the F1Tenth Racing Team of 11 students to second place in competition, developing novel approaches to autonomous racing
-- Guided graduate students in research leading to publications at top venues (e.g., ECCV 2024)
-- Supervised multiple successful projects through programs like RISE, Kilachand Honors College, and BU Spark
-- Mentored students who have gone on to prestigious institutions like UC Berkeley
+My mentorship experience includes leading the F1Tenth Racing Team to second place in competition and guiding graduate students to publications at top venues like ECCV 2024. Through programs like RISE, Kilachand Honors College, and BU Spark, I've supervised successful projects and mentored students who have advanced to prestigious institutions like UC Berkeley.
 
 *Industry and Technology Transfer*
-My work bridges academia and industry through:
-- Development of open-source tools and frameworks used in both research and practical applications
-- Creation of startup ventures that demonstrate the commercial viability of research concepts
-- Collaboration with industry partners on real-world applications of robotic systems
+I bridge academia and industry through open-source tools and frameworks used in both research and practical applications. My experience creating startup ventures demonstrates the commercial viability of research concepts, while collaborations with industry partners ensure real-world impact of robotic systems.
 
 *Diversity and Inclusion*
-I am committed to fostering an inclusive research environment by:
-- Mentoring students from diverse backgrounds and supporting their career development
-- Creating accessible educational resources that democratize robotics education
-- Designing projects that encourage participation from students with varied technical backgrounds
-
-Through these activities, I aim to not only advance the field of robotics technically but also to build a diverse and skilled community of future roboticists.
+My commitment to fostering an inclusive research environment is demonstrated through concrete actions. I've done an introductory presentation for robotics and reinforcement learning for AI4ALL, a program specifically designed to encourage high school girls to pursue AI careers. Through the F1Tenth Racing Team, I've actively mentored students from all sorts of backgrounds, ensuring they gain hands-on experience with autonomous systems. These efforts have successfully supported students in advancing to prestigious institutions and research roles.
