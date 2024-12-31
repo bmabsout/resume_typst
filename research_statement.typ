@@ -5,7 +5,7 @@
 #set page(
   width: 8.5in,
   height: 11in,
-  margin: (x: 0.8in, y: 0.5in),
+  margin: (x: 1in, y: 1in),
 )
 
 #set block(
@@ -30,7 +30,7 @@
   leading: 0.8em,
 )
 
-#v(-1em)
+#v(-3em)
 // Title
 #align(center)[
   #text(size: 16pt, weight: "bold", fill: primary_color)[Bassel El Mabsout#diamond()Research Statement]
@@ -42,82 +42,70 @@ Current methodologies in robotics severely limit our abilities to create capable
 = Research Trajectory
 My research program has made significant contributions to reliable and efficient robotic control, with over 100 citations across my publications demonstrating substantial impact in the field:
 
-1. *Reliable Flight Control via Reinforcement Learning:* I developed a systematic framework (RE+AL) for designing simulated training environments that preserve controller quality when transferred to real platforms. We also introduced a technique for composing reward functions that have influenced the design of many subsequent works. This work, published in ACM TCPS, demonstrated the first RL-based controllers trained in simulation to outperform well-tuned PID controllers on real racing quadrotors, while achieving better tracking errors and reduced power consumption.
+1. *Reliable Flight Control via Reinforcement Learning:* I developed a technique for composing reward functions that better captures the semantics of desired behaviors, this has influenced the design of subsequent works. I also developed a systematic framework (RE+AL) for learning controllers in simulated environments that preserves controller quality when transferred to real platforms. This work, published in ACM TCPS, demonstrated the first RL-based controllers trained in simulation to outperform well-tuned PID controllers on real racing quadrotors, achieving better tracking errors and reduced power consumption.
 
-2. *Action Policy Smoothness:* Through my ICRA publication on CAPS (Conditioning for Action Policy Smoothness), I introduced a general regularization technique that significantly improves the smoothness of learned controllers. When applied to quadrotor control, this method achieved an 80% reduction in power consumption while maintaining reliable flight performance. This work has become a cornerstone reference in the field of efficient reinforcement learning, with adoptions in aerial, aquatic, ground, and even soft robots.
+2. *Action Policy Smoothness:* Through my ICRA publication on CAPS (Conditioning for Action Policy Smoothness), I introduced a general regularization technique that mitigates a wide-spread issue in reinforcement learning for continuous control, namely the issue of unbounded action frequencies that cause numerous hardware failures upon deployment. When applied to real world control, this method achieved an 80% reduction in power consumption while maintaining reliable performance. This work has become a cornerstone reference in the field of efficient reinforcement learning, with adoptions in aerial, ground, and even underwater robots.
 
-3. *Resource-Efficient Neural Architectures:* Published in IEEE CoG, we demonstrated that actor networks in reinforcement learning can be dramatically reduced in size (up to 99% reduction in weights) while maintaining satisfactory performance. This breakthrough enables the deployment of learned controllers on heavily resource-constrained platforms.
+3. *Resource-Efficient Neural Architectures:* Published in IEEE CoG, we demonstrated that actor networks in reinforcement learning can be dramatically reduced in size (up to 99% reduction in weights) while maintaining satisfactory performance on common benchmark tasks. This breakthrough enables the deployment of learned controllers on heavily resource-constrained platforms.
 
 Building on this notion of robust learning under resource constraints, my current work extends into several other directions:
 
-4. *Anchored Learning for Real-World Adaptation:* I've developed "anchor critics," a novel strategy that fundamentally rethinks how we adapt RL agents to real-world scenarios. While traditional fine-tuning approaches often lead to catastrophic forgetting—where policies maintain performance on common scenarios but fail in critical edge cases—our method ensures robust performance across both simulation and reality by maximizing multiple Q-values across domains. When applied to racing quadrotors, this approach achieves a near-50% reduction in power consumption while maintaining stable flight, demonstrating its effectiveness in bridging the sim-to-real gap. Additionally, we've released firmware, an open-source platform that enables researchers to test adaptation techniques on real robots.
+4. *Sim-to-Real Adaptation:* By taking into account our capabilities in simulation and our limitations in reality, I've rethought how to frame the sim-to-real adaptation of RL policies as a multi-objective optimization problem. Without careful treatment of this issue, I've observed massive catastrophic forgetting problems in RL policies. Using what I term "anchor critics", the work shows that such issues can be completely mitigated. Additionally, we've released SWANNFlight firmware, an open-source platform that enables researchers to test adaptation techniques on real robots.
 
-5. *Expressive Reinforcement Learning:* I'm addressing fundamental limitations in how roboticists specify desired behaviors through Algebraic Q-Value Scalarization (*AQS*). This novel domain-specific language generalizes traditional linear reward composition by using power-means as logical operators over normalized Q-values, making policy specification more intuitive and robust. When integrated with our new Balanced Policy Gradient algorithm, AQS achieves up to 600% improvement in sample efficiency compared to state-of-the-art methods like Soft Actor Critic, while significantly reducing policy variability.
+5. *Expressive Reinforcement Learning:* I'm addressing fundamental limitations in how roboticists specify desired behaviors through Algebraic Q-Value Scalarization (*AQS*). This novel domain-specific language generalizes traditional linear reward composition by using the power-mean as a logical operator over normalized Q-values. This increases the expressiveness of policy specification. When integrated with our new Balanced Policy Gradient algorithm, AQS achieves up to 600% improvement in sample efficiency compared to state-of-the-art methods like Soft Actor Critic, while significantly reducing policy variability.
 
-#figure(
-  grid(
+#grid(
     columns: 2,
     gutter: 1em,
-    [Figure 1: Anchored Learning results showing 50% power reduction while maintaining performance],
-    [Figure 2: AQS policy specification example demonstrating intuitive behavior composition]
-  ),
-  caption: [
-    *Key Results:* Left: Performance comparison of Anchored Learning vs. baselines in sim-to-real transfer.
-    Right: Example of AQS policy specification showing composition of multiple objectives.
-  ]
-)
+    figure(
+      image("figs/caps.png", height: 6cm, fit: "contain"),
+      caption: text(size: 10pt)[CAPS regularization significantly reduces control signal oscillations while maintaining performance, leading to 80% power reduction on real quadrotors.]
+    ),
+    figure(
+      image("figs/lyapunov.png", height: 6cm, fit: "contain"),
+      caption: text(size: 10pt)[Quickly learned family of Lyapunov functions for a pendulum enabling stable control across multiple set points, improving sim-to-real transfer.]
+    ),
+  )
+ 
 
 *Past Achievements*
-My research journey began at the American University of Beirut, where I first explored the intersection of neural networks and swarm control systems. As a researcher there, I developed neural-swarm, a pioneering collection of experimental optimization algorithms for learning decentralized swarm control systems. This early work laid the foundation for my current research in robust learning for robotic systems.
-
-During my doctoral studies at Boston University under Dr. Renato Mancuso, I've focused on bridging the gap between high-level objectives and reliable robotic behavior. My work has produced several key contributions:
-
-1. Development of novel optimization techniques that significantly improve the reliability of learned controllers
-2. Creation of new programming abstractions for specifying robot behaviors
-3. Advancement of methods for ensuring stability in learned control systems
-
-In parallel with my academic research, I've demonstrated the practical application of my work through successful entrepreneurial ventures. As a founder and technical leader, I've developed and deployed complex systems that showcase the real-world impact of principled software design and optimization techniques.
+My research journey began at the American University of Beirut, where I first explored the intersection of neural networks and swarm control systems. As a researcher there, I developed a collection of experimental optimization algorithms for learning decentralized swarm control systems.
 
 = Future Research Program
 *Short-term Goals (2-5 years)*
 Building on my current research achievements, I plan to pursue several interconnected research directions, supported by specific funding opportunities:
 
-1. *Efficient Control for Resource-Constrained Robots:* I will advance the state-of-the-art in neural network control for under-instrumented limbed robots, focusing on:
-   - Developing HW/SW architectures for energy-efficient control (Year 1-2, NSF CPS)
-   - Creating efficient learned runtime adaptation techniques for constrained platforms (Year 2-3, DARPA YFA)
-   - Enabling a new class of cost- and power-efficient robots (Year 3-4, Industry partnerships)
+1. *Efficient Control for Resource-Constrained Robots:* I plan to advance the state-of-the-art in neural network control for under-instrumented limbed robots, focusing on:
+   - Developing HW/SW architectures for energy-efficient control
+   - Creating efficient learned runtime adaptation techniques for constrained platforms
+   - Enabling a new class of cost- and power-efficient robots
 
 2. *Sustainable Robotics:* I will explore the intersection of eco-friendly robotics and efficient computing through:
-   - Development of solar-powered UAV systems for sustainable agriculture (Year 1-2, USDA-NIFA)
-   - Design of power-aware neural networks that maximize efficiency (Year 2-3, DOE ARPA-E)
-   - Integration of formal safety bounds with energy-efficient control (Year 3-4, NSF CAREER)
+   - Design of power-aware neural networks that maximize efficiency
+   - Integration of formal safety bounds with energy-efficient control
 
-3. *Certified Survivability:* I will develop methods for certifiably safe and robust neural network-based controllers that can:
-   - Adapt to substantial system damages while maintaining safety guarantees (Year 1-2, ONR)
-   - Transfer learned behaviors across different robot configurations (Year 2-3, NASA STTR)
-   - Provide formal verification of controller behavior (Year 3-4, Industry collaboration)
+3. *Certified Survivability:* I intend on developing methods for certifiably safe and robust neural network-based controllers that can:
+   - Adapt to substantial system damages while maintaining safety guarantees
+   - Transfer learned behaviors across different robot configurations
+   - Provide formal verification of controller behavior
 
 *Long-term Vision (5+ years)*
 My long-term research agenda aims to revolutionize how we develop and deploy reliable robotic systems:
 
-1. *Framework Development:* Create a comprehensive framework that seamlessly integrates:
-   - Data ownership and privacy concerns in robotic systems
-   - Efficient processing of ML workloads on resource-constrained platforms
-   - Secure execution guarantees for robotic applications
-
-2. *Theoretical Foundations:* Establish new theoretical foundations for:
+1. *Theoretical Foundations:* Establish new theoretical foundations for:
    - Provably safe adaptation in robotic systems
    - Resource-aware learning and control
+   - Intuitive specification of robotic behaviors
    - Formal verification of learned behaviors
 
-3. *Real-world Impact:* Drive the adoption of reliable robotic systems through:
+2. *Real-world Impact:* Drive the adoption of reliable robotic systems through:
    - Development of open-source tools and frameworks
    - Industry collaborations for practical deployment
    - Creation of educational resources for the next generation of roboticists
 
 
-= Integration with Institution
-[...]
+// = Integration with Institution
+// [...]
 
 = Broader Impacts
 My research program is deeply committed to broader impacts through education, mentorship, and technology transfer:
