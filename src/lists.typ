@@ -9,13 +9,15 @@
   
   peer_review_venues: (
     "ICLR",
+    "ICRA",
+    "COG",
     "ROBOT",
     "EMSOFT",
-    "COG",
     "DATE",
     "ECRTS",
     "RTSS",
-    "TJCA"
+    "TJCA",
+    "RTAS"
   )
 )
 
