@@ -21,11 +21,12 @@
   #v(0.3em)
 ]
 
-
 #set par(
   justify: true,
   leading: 0.6em,
 )
+
+#set cite(style: "the-institution-of-engineering-and-technology")
 
 #v(-3em)
 // Title
@@ -38,14 +39,17 @@ Current methodologies in robot learning face two critical challenges that limit 
 #v(-0.7em)
 = Research Impact and Current Work
 
-*Foundational Sim-to-Real Transfer:* In RE+AL, my first research paper demonstrated the first RL-based controllers to outperform well-tuned PID controllers on real racing quadrotors. Building on this, my recent work on anchor critics allows for on-the-fly NN optimization, achieving near-50% power reduction while maintaining stable flights.
+*Foundational Sim-to-Real Transfer:* In RE+AL @real, my first research paper demonstrated the first RL-based controllers to consistently outperform well-tuned PID controllers on real racing quadrotors. Building on this, my recent work on anchor critics @anchor allows for on-the-fly NN optimization, achieving near-50% power reduction while preventing catastrophic forgetting.
 
-*Reliable Real-World Deployment:* Through CAPS (Conditioning for Action Policy Smoothness), I developed a general regularization technique achieving 80% power reduction while maintaining performance on real robots. This work has become a cornerstone reference in efficient reinforcement learning with over 80 citations.
+*Reliable Real-World Deployment:* In CAPS~@caps, a general power optimization technique, I demonstrated 80% power reduction while maintaining performance on real robots. This work has become a cornerstone reference in efficient reinforcement learning garnering over 80 citations.
 
-*Efficient Control for Resource-Constrained Robots:* By breaking actor-critic symmetry, I demonstrated that neural network controllers can be dramatically reduced in size (up to 99% reduction in weights, averaging 77% across tasks) while maintaining performance, enabling deployment on heavily resource-constrained platforms.
+*Efficient Control for Resource-Constrained Robots:* By breaking actor-critic symmetry~@honey, neural network controllers can be dramatically reduced in size (up to 99% reduction in number of parameters) with similar performance. Enabling deployment on resource-constrained platforms.
 
 #v(-0.7em)
 = Future Research Program and Impact
-My research agenda focuses on establishing Expressive Reinforcement Learning as a new subfield bridging programming languages and robot learning. I am developing Algebraic Policy Specification (APS), a novel domain-specific language that generalizes traditional reward composition to enable direct expression of complex behavioral objectives. Initial results show a 600% improvement in sample efficiency compared to state-of-the-art methods. In the short term (2-5 years), I will create frameworks for composable reward specification that generalize across different robotics domains while maintaining computational efficiency. Long-term, this work will establish theoretical foundations for a new generation of robot learning systems that can faithfully translate high-level intentions into reliable behaviors.
+My research agenda focuses on establishing Expressive Reinforcement Learning as a new subfield dedicated to faithfully translating high-level objectives into robust robot behaviors. I am developing Algebraic Policy Specification (APS)~@aps, a novel domain-specific language that generalizes traditional reward composition to enable direct expression of complex behavioral objectives. Initial results show a 600% improvement in sample efficiency compared to state-of-the-art methods. In the short term (2-5 years), I will create frameworks for composable reward specifications that generalize across different robotics domains while maintaining computational efficiency. Long-term, this work will establish theoretical foundations for a new generation of robot learning systems that can faithfully translate high-level intentions into reliable behaviors.
 
-I am committed to broader impacts through education and mentorship. My teaching experience spans core computer science courses, where I've developed innovative materials like PyBullet simulations for teaching control fundamentals. Through programs like AI4ALL and the F1Tenth Racing Team, I actively mentor diverse students while bridging academia and industry through open-source tools, ensuring real-world impact while fostering an inclusive research environment. 
+I am committed to open-source development and have released: a firmware for live adaptation on real robots @swannflight, algorithms for Lyapunov-based stable control @system_descent and stochastic dynamics learning @swirls, and software for risk-aware planning @gaussian_racer. Through these contributions and active mentorship of students in robotics research, including leading 11 students to second place in F1Tenth racing and mentoring graduate students to publication at ECCV 2024 @unilcd, I aim to foster an environment where advances in robot learning translate directly to practical impact.
+
+#pagebreak()
+#bibliography("research_statement.bib")
