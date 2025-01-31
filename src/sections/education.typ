@@ -10,7 +10,9 @@
       ),
       [Advisor: Renato Mancuso \
       Depth exam: _Control Theory and Embedded Systems_ #h(1fr) #smallcaps(lower([passed 2022]))\
-      #h(cv_styling.insets.inner.left)_Committee: \[Renato Mancuso#diamond()Rich West#diamond()Kate Saenko\]_]
+      #h(cv_styling.insets.inner.left)_Committee: \[Renato Mancuso#diamond()Rich West#diamond()Kate Saenko\]_\
+      Prospectus: _Minimizing the Intent-To-Reality Gap_ #h(1fr) #smallcaps(lower([passed 2025]))\
+      #h(cv_styling.insets.inner.left)_Committee: \[Renato Mancuso#diamond()Kate Saenko#diamond()Sabrian Neuman#diamond()Bingzhuo Zhong\]_]
     ),
     cv_entry(
       entry_heading(
