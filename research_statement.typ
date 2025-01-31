@@ -88,10 +88,6 @@ My long-term research agenda aims to revolutionize how we develop and deploy rel
 
 *Real-world Impact:* I will drive the adoption of reliable robotic systems through the development of open-source tools and frameworks, fostering industry collaborations for practical deployment, and creating educational resources for the next generation of roboticists. This approach ensures that theoretical advances translate into practical benefits for society.
 
-
-// = Integration with Institution
-// [...]
-
 = Broader Impacts
 I am committed to broader impacts through education, mentorship, and technology transfer:
 
