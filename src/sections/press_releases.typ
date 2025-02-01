@@ -8,6 +8,14 @@
       (
         cv_entry(
           entry_heading(
+            l: [Ph.D. Prospectus],
+            m: link("https://github.com/bmabsout/prospectus/blob/main/prospectus.pdf")["Document"]+diamond()+link("https://tinyurl.com/bm-prospectus")["Slides"],
+            r: [2025]
+          ),
+          [Presented my thesis proposal on bridging the gap between high-level objectives and real-world performance in robotic systems, focusing on expressive policy specification and robust deployment.]
+        ),
+        cv_entry(
+          entry_heading(
             l: [WASP],
             m: link("https://wasp-sweden.org/")["wasp-sweden.org"],
             r: [2023]

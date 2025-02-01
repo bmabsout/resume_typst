@@ -4,7 +4,8 @@
   (
     cv_entry(
       entry_heading(l:[Control Theory Survey], r:[depth exam -- bu]),
-      [This survey explores the landscape of safe robot learning, investigating methods that balance high-performance control with rigorous safety constraints. By examining classical control techniques, learning-based approaches, and embedded system design, the research seeks to understand how robotic systems can be developed to prevent hazardous states while maintaining optimal performance.]
+      [This survey explores the landscape of safe robot learning, investigating methods that balance high-performance control with rigorous safety constraints. By examining classical control techniques, learning-based approaches, and embedded system design, the research seeks to understand how robotic systems can be developed to prevent hazardous states while maintaining optimal performance.
+      #links(labeled("arxiv", link("https://arxiv.org/abs/2501.01432")[2501.01432]))]
     ),
     cv_entry(
       entry_heading(l:[Stochastic dynamics learning], r:[bu/mit]),

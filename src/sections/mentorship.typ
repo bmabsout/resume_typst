@@ -50,7 +50,6 @@
     cv_entry(
       entry_heading(
         l:[*Zahera*],
-        m:[Software Engineering Lead],
         r:[2021]
       ),
       [Mentored Shadi Shahin, Marwa Karaki, and Pierre Kamel in building an application with heavy image processing components. Guiding them on modern development practices, code quality, and system architecture. I Led technical training sessions and provided guidance on best practices in software development.]
@@ -58,7 +57,6 @@
     cv_entry(
       entry_heading(
         l:[*Scanman*],
-        m:[Founder],
         r:[2022]
       ),
       [Mentored two developers in development on live real-time data processing, database design, and program architecture. Provided guidance on algorithm implementations, code optimization, and full-stack development.]
