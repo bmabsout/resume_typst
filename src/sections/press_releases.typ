@@ -8,6 +8,13 @@
       (
         cv_entry(
           entry_heading(
+            l: [Indiana University Bloomington],
+            r: [2025]
+          ),
+          [Presented my job talk titled "Minimizing the Intent-to-Reality Gap", for a tenure-track position in ISE]
+        ),
+        cv_entry(
+          entry_heading(
             l: [Ph.D. Prospectus],
             m: link("https://github.com/bmabsout/prospectus/blob/main/prospectus.pdf")["Document"]+diamond()+link("https://tinyurl.com/bm-prospectus")["Slides"],
             r: [2025]

@@ -6,9 +6,9 @@
       entry_heading(
         l: [Ph.D. candidate in Computer Science],
         m: [Boston University],
-        r: [2018 -- may 2025]
+        r: [2018 -- august 2025]
       ),
-      [Advisor: Renato Mancuso \
+      [Advisor: Renato Mancuso, GPA: 3.9/4.0 \
       Depth exam: _Control Theory and Embedded Systems_ #h(1fr) #smallcaps(lower([passed 2022]))\
       #h(cv_styling.insets.inner.left)_Committee: \[Renato Mancuso#diamond()Rich West#diamond()Kate Saenko\]_\
       Prospectus: _Minimizing the Intent-To-Reality Gap_ #h(1fr) #smallcaps(lower([passed 2025]))\
