@@ -4,6 +4,14 @@
   (
     cv_entry(
       entry_heading(
+        l:[*Cofounder/CSO*],
+        m:[Neobotics Foundation Inc.],
+        r:[2025 -- present]
+      ),
+      [Leading the development of an open-source platform democratizing autonomous systems education through affordable racing kits and comprehensive learning materials. Building a community-driven ecosystem that makes robotics education more accessible while advancing the field of autonomous racing.]
+    ),
+    cv_entry(
+      entry_heading(
         l:[*Founder*],
         m:[Scanman],
         r:[2020 -- present]
