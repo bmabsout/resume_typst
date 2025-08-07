@@ -8,6 +8,20 @@
       (
         cv_entry(
           entry_heading(
+            l: [Minimizing the Intent-To-Reality Gap],
+            r: [2025]
+          ),
+          [Defended my doctoral dissertation presenting Fulfillment Priority Logic, a new framework and algorithm that improve multi-objective reinforcement learning efficiency and performance.]
+        ),
+        cv_entry(
+          entry_heading(
+            l: [Guest Lecture Embedded Systems 454/654],
+            r: [2025]
+          ),
+          [Gave two guest lectures on control theory for the embedded systems course in Boston University]
+        ),
+        cv_entry(
+          entry_heading(
             l: [Indiana University Bloomington],
             r: [2025]
           ),
