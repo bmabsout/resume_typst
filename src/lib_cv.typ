@@ -129,7 +129,7 @@
 )
 
 #let stack_unbreakable(first, last, spacing, inset, children) = {
-  block(breakable: false)[#first#block(inset: inset)[#children.first()]]
+  block(breakable: true, sticky: true)[#first#block(inset: inset)[#children.first()]]
   v(spacing, weak:true)
   children.slice(1, -1).map(child => block(inset: (left: inset.left))[#child]).intersperse(v(spacing, weak:true)).reduce((x,y) => x+y)
   v(spacing, weak:true)
@@ -165,7 +165,7 @@
       weight: cv_styling.subsection.weight,
       fill: primary_color.lighten(20%),
     )[#subsection.title],
-      par(leading: cv_styling.spacing.paragraph)[
+      block(breakable: true)[
       #subsection.body
     ],
     inset: cv_styling.insets.inner
@@ -237,7 +237,7 @@
         #h(1fr)
         #smallcaps([#(if (publication.at("citations", default:0) != 0) [#smallcaps[(citations: #publication.citations) ]])#publication.year])
       ],
-      par(leading: cv_styling.spacing.paragraph)[
+      [
         #block(inset: (left: cv_styling.insets.inner.left))[#emph[#publication.title]
         #links(
           labeled(publication.venue, publication.doi),

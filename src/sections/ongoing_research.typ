@@ -11,7 +11,7 @@
       [A novel strategy for enhancing the robustness of reinforcement learning agents in crossing the sim-to-real gap. Our method maximizes multiple Q-values across domains, ensuring high performance in both simulation and reality, achieving a near-50% reduction in power consumption while maintaining controllable, stable flight #links(labeled("arXiv", link("https://arxiv.org/abs/2301.06987")[2301.06987]), labeled("github", link("https://github.com/bmabsout/AnchoredActorCritic")[bmabsout/AnchoredActorCritic]))]
     ),
     cv_entry(
-      entry_heading( l: [Scrap Your Schedules with PopDescent], r: [submitting to ] ),
+      entry_heading( l: [Scrap Your Schedules with PopDescent], r: [ONGOING] ),
       [A population-based hyperparameter optimization method which adaptively controls hyperparameter selection via a normalized fitness function. The method combines the exploration benefits of evolutionary algorithms with the exploitation of gradient descent, outperforming the use of schedules by up to 18% #links(labeled("arXiv", link("https://arxiv.org/abs/2310.14671")[2310.14671]))]
     ),
     cv_entry(
