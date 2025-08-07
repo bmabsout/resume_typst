@@ -46,6 +46,10 @@
               requests
             ]))
           ];
+          # in order to get the correct value from datetime.today()
+          shellHook = ''
+            unset SOURCE_DATE_EPOCH
+          '';
         };
       }
     );

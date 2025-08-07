@@ -56,6 +56,19 @@
     extra_links: (
       ("github", link("https://github.com/bmabsout/puler")[bmabsout/puler]),
     )
+  ),
+  fpl: (
+    authors: "Mabsout B.* and Abdelgawad A.* and Mancuso R.",
+    title: [Closing the Intent-to-Reality Gap via Fulfillment Priority Logic],
+    abstract: [
+      Practitioners designing reinforcement learning policies face a fundamental challenge: translating intended behavioral objectives into representative reward functions. This challenge stems from behavioral intent requiring simultaneous achievement of multiple competing objectives, typically addressed through labor-intensive linear reward composition that yields brittle results. Consider the ubiquitous robotics scenario where performance maximization directly conflicts with energy conservation. Such competitive dynamics are resistant to simple linear reward combinations. In this paper, we present the concept of objective fulfillment upon which we build Fulfillment Priority Logic (FPL). FPL allows practitioners to define logical formula representing their intentions and priorities within multi-objective reinforcement learning. Our novel Balanced Policy Gradient algorithm leverages FPL specifications to achieve up to 500\% better sample efficiency compared to Soft Actor Critic. Notably, this work constitutes the first implementation of non-linear utility scalarization design, specifically for continuous control problems.
+    ],
+    venue: "IROS",
+    year: "2025",
+    doi: link("https://www.researchgate.net/publication/389713840")[researchgate.net/publication/389713840],
+    extra_links: (
+      ("github", link("https://github.com/bmabsout/FPL-IROS25")[bmabsout/FPL-IROS25]),
+    )
   )
 )
 
