@@ -13,7 +13,7 @@
     venue: "ACM Trans. Cyber-Phys. Syst., 5(4)",
     year: 2021,
     doi: link("https://doi.org/10.1145/3466618")[10.1145/3466618],
-    citations: 28,
+    citations: 29,
     extra_links: (
       ("website", link("https://cpslab.bu.edu/projects/httyq/")[cpslab.bu.edu/projects/httyq]),
     )
@@ -24,7 +24,7 @@
     venue: "ICRA",
     year: "2021",
     doi: link("https://doi.org/10.1109/ICRA48506.2021.9561138")[10.1109/ICRA48506.2021.9561138],
-    citations: 102,
+    citations: 116,
     abstract: [
       A critical problem with the practical utility of controllers trained with deep Reinforcement Learning (RL) is the notable lack of smoothness in the actions learned by the RL policies. This trend often presents itself in the form of control signal oscillation and can result in poor control, high power consumption, and undue system wear. We introduce Conditioning for Action Policy Smoothness (CAPS), an effective yet intuitive regularization on action policies, which offers consistent improvement in the smoothness of the learned state-to-action mappings of neural network controllers, reflected in the elimination of high-frequency components in the control signal. Tested on a real system, improvements in controller smoothness on a quadrotor drone resulted in an almost 80% reduction in power consumption while consistently training flight-worthy controllers.
     ],
@@ -41,7 +41,7 @@
     venue: "IEEE CoG",
     year: "2021",
     doi: link("https://doi.org/10.1109/CoG52621.2021.9619008")[10.1109/CoG52621.2021.9619008],
-    citations: 12,
+    citations: 15,
     extra_links: ()
   ),
   thesis: (
