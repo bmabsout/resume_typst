@@ -211,6 +211,15 @@
   )
 }
 
+#let review_venue_entry(name, papers) = {
+  name
+  metadata(papers)
+}
+
+#let review_venues(venues) = {
+  venues.join([#diamond()])
+}
+
 // Publication-specific components
 #let cv_publication_entry(
   publication,

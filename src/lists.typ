@@ -6,19 +6,6 @@
     "Metaheuristics",
     "Control Systems"
   ),
-  
-  peer_review_venues: (
-    "ICLR",
-    "ICRA",
-    "COG",
-    "ROBOT",
-    "EMSOFT",
-    "DATE",
-    "ECRTS",
-    "RTSS",
-    "TJCA",
-    "RTAS"
-  )
 )
 
 #let skills = (
