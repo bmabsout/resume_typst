@@ -4,11 +4,19 @@
   (
     cv_entry(
       entry_heading(
+        l:[*Research Engineer*],
+        m:[Eka Robotics],
+        r:[2025 -- present]
+      ),
+      [Working on reinforcement learning for dexterous manipulation tasks: applying research ideas to real robotic arms, developing simulation infrastructure, and bridging the sim-to-real gap for deployment. Contributed heavily to one the main demos central to the company's massively successful Series A round #links(labeled("website", link("https://ekarobotics.com")[ekarobotics.com]), labeled("wired article", link("https://www.wired.com/story/when-robots-have-their-chatgpt-moment-remember-these-pincers/")[wired.com/...]))]
+    ),
+    cv_entry(
+      entry_heading(
         l:[*Cofounder/CSO*],
         m:[Neobotics Foundation Inc.],
         r:[2025 -- present]
       ),
-      [Leading the development of an open-source platform democratizing autonomous systems education through affordable racing kits and comprehensive learning materials. Building a community-driven ecosystem that makes robotics education more accessible while advancing the field of autonomous racing.]
+      [Leading the development of an open-source platform democratizing autonomous systems education through affordable racing kits and comprehensive learning materials. Building a community-driven ecosystem that makes robotics education more accessible while advancing the field of autonomous racing #links(labeled("website", link("https://neobotics.org")[neobotics.org]))]
     ),
     cv_entry(
       entry_heading(

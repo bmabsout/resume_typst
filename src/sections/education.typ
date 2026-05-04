@@ -4,15 +4,14 @@
   (
     cv_entry(
       entry_heading(
-        l: [Ph.D. candidate in Computer Science],
+        l: [Ph.D. in Computer Science],
         m: [Boston University],
-        r: [2018 -- august 2025]
+        r: [2018 -- 2025]
       ),
-      [Advisor: Renato Mancuso, GPA: 3.9/4.0 \
-      Depth exam: _Control Theory and Embedded Systems_ #h(1fr) #smallcaps(lower([passed 2022]))\
-      #h(cv_styling.insets.inner.left)_Committee: \[Renato Mancuso#diamond()Rich West#diamond()Kate Saenko\]_\
-      Doctoral Dissertation: _Minimizing the Intent-To-Reality Gap_ #h(1fr) #smallcaps(lower([passed 2025]))\
-      #h(cv_styling.insets.inner.left)_Committee: \[Renato Mancuso#diamond()Kate Saenko#diamond()Sabrina Neuman#diamond()Bingzhuo Zhong\]_]
+      [Advisor: Renato Mancuso \
+      Dissertation: _Minimizing the Intent-to-Reality Gap in Robot Learning: A Fulfillment-Centric Perspective_\
+      #h(cv_styling.insets.inner.left)_Committee: \[Renato Mancuso#diamond()Kate Saenko#diamond()Sabrina Neuman#diamond()Bingzhuo Zhong\]_
+      #links(labeled("dissertation", link("https://github.com/bmabsout/Thesis/blob/main/thesis.pdf")[github.com/bmabsout/Thesis]), labeled("qualifiers survey paper", link("https://arxiv.org/abs/2501.01432")[2501.01432]))]
     ),
     cv_entry(
       entry_heading(
@@ -21,7 +20,8 @@
         r: [2023]
       ),
       [Thesis: _Tree Shaping, a solution to the expression problem_\
-      #h(cv_styling.insets.inner.left)_Committee: \[Marco Gaboardi#diamond()Renato Mancuso\]_]
+      #h(cv_styling.insets.inner.left)_Committee: \[Marco Gaboardi#diamond()Renato Mancuso\]_
+      #links(labeled("thesis", link("https://hdl.handle.net/2144/49330")[hdl.handle.net/2144/49330]))]
     ),
     cv_entry(
       entry_heading(

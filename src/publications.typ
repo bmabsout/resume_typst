@@ -13,7 +13,7 @@
     venue: "ACM Trans. Cyber-Phys. Syst., 5(4)",
     year: 2021,
     doi: link("https://doi.org/10.1145/3466618")[10.1145/3466618],
-    citations: 29,
+    citations: 28,
     extra_links: (
       ("website", link("https://cpslab.bu.edu/projects/httyq/")[cpslab.bu.edu/projects/httyq]),
     )
@@ -24,7 +24,7 @@
     venue: "ICRA",
     year: "2021",
     doi: link("https://doi.org/10.1109/ICRA48506.2021.9561138")[10.1109/ICRA48506.2021.9561138],
-    citations: 116,
+    citations: 160,
     abstract: [
       A critical problem with the practical utility of controllers trained with deep Reinforcement Learning (RL) is the notable lack of smoothness in the actions learned by the RL policies. This trend often presents itself in the form of control signal oscillation and can result in poor control, high power consumption, and undue system wear. We introduce Conditioning for Action Policy Smoothness (CAPS), an effective yet intuitive regularization on action policies, which offers consistent improvement in the smoothness of the learned state-to-action mappings of neural network controllers, reflected in the elimination of high-frequency components in the control signal. Tested on a real system, improvements in controller smoothness on a quadrotor drone resulted in an almost 80% reduction in power consumption while consistently training flight-worthy controllers.
     ],
@@ -41,7 +41,7 @@
     venue: "IEEE CoG",
     year: "2021",
     doi: link("https://doi.org/10.1109/CoG52621.2021.9619008")[10.1109/CoG52621.2021.9619008],
-    citations: 15,
+    citations: 24,
     extra_links: ()
   ),
   thesis: (
@@ -69,7 +69,18 @@
     extra_links: (
       ("github", link("https://github.com/bmabsout/FPL-IROS25")[bmabsout/FPL-IROS25]),
     )
-  )
+  ),
+  lyapunov_fpl: (
+    authors: "Abdelgawad A. and Mabsout B. and Wang Z. and Mancuso R. and Andersson S. B. and Tron R.",
+    title: [Accelerating Lyapunov-Stable Neural Control Using Fulfillment Priority Logic],
+    abstract: [
+      We present a two-stage approach for learning stability-certified neural controllers that achieves a reduction of up to ~95% in training time compared to the state-of-the-art baseline, which introduced monotonic neural Lyapunov architectures. Our method combines monotonic neural Lyapunov functions with fulfillment priority logic (FPL) to efficiently initialize controllers before formal verification. Traditional approaches for jointly learning controllers and neural Lyapunov functions require computationally expensive mixed-integer linear programming (MILP) or satisfiability modulo theory (SMT) solvers at each training iteration, often taking several hours to converge. We address this bottleneck by leveraging FPL to perform early joint initialization of the controller and Lyapunov networks.
+    ],
+    venue: "ACC",
+    year: 2026,
+    doi: link("https://css.paperplaza.net/conferences/conferences/ACC26/program/ACC26_ContentListWeb_1.html#wea15")[(Accepted into ACC 2026)],
+    extra_links: ()
+  ),
 )
 
 // Create labels dictionary with label and reference

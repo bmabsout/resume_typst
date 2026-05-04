@@ -56,12 +56,12 @@
   
   frameworks: (
     ml: (
-      "TensorFlow",
-      "PyTorch",
-      "JAX",
-      "Keras",
       "NumPy",
+      "JAX",
+      "TensorFlow",
       "SciPy",
+      "Keras",
+      "PyTorch",
     ),
     robotics: (
       "Stable Baselines",

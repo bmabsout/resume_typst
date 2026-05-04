@@ -11,7 +11,7 @@
             l: [Minimizing the Intent-To-Reality Gap],
             r: [2025]
           ),
-          [Defended my doctoral dissertation presenting Fulfillment Priority Logic, a new framework and algorithm that improve multi-objective reinforcement learning efficiency and performance.]
+          [Defended my doctoral dissertation]
         ),
         cv_entry(
           entry_heading(
