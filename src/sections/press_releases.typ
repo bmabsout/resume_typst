@@ -8,6 +8,13 @@
       (
         cv_entry(
           entry_heading(
+            l: [MIT Beaver Works Summer Institute],
+            r: [2026]
+          ),
+          [Lectured on "Reinforcement Learning on Real Robots" for MIT Lincoln Laboratory's summer institute, covering what changes when RL policies leave simulation and run on physical hardware]
+        ),
+        cv_entry(
+          entry_heading(
             l: [Minimizing the Intent-To-Reality Gap],
             r: [2025]
           ),
