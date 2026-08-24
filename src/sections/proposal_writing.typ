@@ -8,7 +8,7 @@
         m: [#emphasis[Co-PI]#diamond()PI: \[Renato Mancuso\]],
         r: [2026#diamond()#emphasis[Pending]]
       ),
-      [#emphasis[Co-PI] representing Neobotics on a \~\$1.7M proposal to the NSF Translation to Practice program (NSF 25-540). The project turns NSF-catalyzed lab research into mass-produced, turnkey kits for autonomous-vehicle research and education, manufactured under a \$640K subaward to Neobotics. Submitted May 2026, under review.]
+      [#emphasis[Co-PI] representing Neobotics on a proposal to the NSF Translation to Practice program (NSF 25-540). The project turns NSF-catalyzed lab research into mass-produced, turnkey kits for autonomous-vehicle research and education, manufactured by Neobotics. Submitted May 2026, under review.]
     ),
     cv_entry(
       entry_heading(
