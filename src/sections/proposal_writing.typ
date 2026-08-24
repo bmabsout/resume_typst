@@ -4,11 +4,11 @@
   (
     cv_entry(
       entry_heading(
-        l: [NeoRacer: a Standardized Kit for Research in Autonomy],
+        l: [NSF-TTP Proposal],
         m: [#emphasis[Co-PI]#diamond()PI: \[Renato Mancuso\]],
         r: [2026#diamond()#emphasis[Pending]]
       ),
-      [#emphasis[Co-PI] representing Neobotics on a proposal to the NSF Translation to Practice program (NSF 25-540). The project turns NSF-catalyzed lab research into mass-produced, turnkey kits for autonomous-vehicle research and education, manufactured by Neobotics. Submitted May 2026, under review.]
+      [#emphasis[Co-PI] representing Neobotics on a proposal to the NSF Translation to Practice program (NSF 25-540). The project, NeoRacer, turns NSF-catalyzed lab research into mass-produced, turnkey kits for autonomous-vehicle research and education, manufactured by Neobotics. Submitted May 2026, under review.]
     ),
     cv_entry(
       entry_heading(
