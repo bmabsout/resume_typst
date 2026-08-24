@@ -6,9 +6,9 @@
       entry_heading(
         l: [NeoRacer: a Standardized Kit for Research in Autonomy],
         m: [#emphasis[Co-PI]#diamond()PI: \[Renato Mancuso\]],
-        r: [2026]
+        r: [2026#diamond()#emphasis[Pending]]
       ),
-      [#emphasis[Co-PI] on a \~\$1.7M full proposal to the NSF Translation to Practice program (NSF 25-540), submitted May 2026. As the partner-organization Co-PI, I represent Neobotics in a BU--Neobotics partnership translating NSF-catalyzed lab research into NeoRacer: mass-produced, turnkey autonomous-vehicle kits standardizing research and education in autonomy, with a \$640K manufacturing subaward to Neobotics over 4 years.]
+      [#emphasis[Co-PI] on a \~\$1.7M full proposal to the NSF Translation to Practice program (NSF 25-540), submitted May 2026 and currently under review. As the partner-organization Co-PI, I represent Neobotics in a BU--Neobotics partnership translating NSF-catalyzed lab research into NeoRacer: mass-produced, turnkey autonomous-vehicle kits standardizing research and education in autonomy, with a \$640K manufacturing subaward to Neobotics over 4 years.]
     ),
     cv_entry(
       entry_heading(
