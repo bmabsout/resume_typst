@@ -81,6 +81,19 @@
     doi: link("https://css.paperplaza.net/conferences/conferences/ACC26/program/ACC26_ContentListWeb_1.html#wea15")[(Accepted into ACC 2026)],
     extra_links: ()
   ),
+  neoracer: (
+    authors: "Bandyopadhyay K. and Mehta A. and Mabsout B. and Mancuso R.",
+    title: [NeoRacer: An Open, Standardized 1:12 Scale Autonomous Race Car for Benchmarking and Education],
+    abstract: [
+      Many scientific fields rely on standard benchmarks and shared platforms to improve review and reproducibility, but autonomous systems research still lacks widely accepted open hardware. Where standardization has emerged, progress has accelerated. This is especially evident in autonomous racing, where teams often build custom systems or buy niche, expensive vehicles, making control and robotics research and education hard to compare and reproduce. High costs also limit access outside well-funded labs, while affordable educational robots are often underpowered. To address this gap, we present NeoRacer, an open-source 1:12 scale autonomous racing platform. It is built around an NVIDIA Jetson Orin Nano (67 TOPS), a 270° LiDAR, a 120 fps global-shutter camera, and a 9-axis IMU. NeoRacer ships pre-assembled for USD 2,699, offering over 3x the compute of comparable platforms at less than half the cost of the nearest pre-assembled alternative. Co-developed by the Neobotics Foundation and Seeed Studio, and manufactured by Seeed Studio, NeoRacer combines open hardware and software design with scalable, repeatable production. The modular, extensible platform provides a standardized benchmarking environment for autonomous racing algorithms across institutions. We describe the hardware/software architecture, design decisions from two pilot deployments (MIT IAP, 15 students; BU CPS Lab, 10 students), and key cost-performance tradeoffs. Hardware is licensed under CERN-OHL-S v2 and software under GPLv3, with all design files, firmware, and ROS2 packages publicly accessible.
+    ],
+    venue: "arXiv preprint",
+    year: 2026,
+    doi: link("https://arxiv.org/abs/2607.26855")[2607.26855],
+    extra_links: (
+      ("website", link("https://neobotics.org")[neobotics.org]),
+    )
+  ),
 )
 
 // Create labels dictionary with label and reference
