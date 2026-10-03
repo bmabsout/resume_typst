@@ -2,7 +2,7 @@
 // (bmabsout/typst-design). This file only binds the names the sections use.
 #import "@local/typst-design:0.1.0": cv-style, cv-kit, cv-page, ramps
 
-#let style = cv-style()
+#let style = cv-style(owner: "Mabsout")
 #let kit = cv-kit(style)
 
 #let primary_color = style.colors.primary

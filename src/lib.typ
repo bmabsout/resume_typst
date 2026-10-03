@@ -2,7 +2,7 @@
 // (bmabsout/typst-design). This file only binds the names resume.typ uses.
 #import "@local/typst-design:0.1.0": resume-style, resume-kit, fa
 
-#let style = resume-style()
+#let style = resume-style(owner: "Mabsout")
 #let kit = resume-kit(style)
 
 #let primary_color = style.colors.primary
