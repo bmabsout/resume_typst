@@ -1,4 +1,5 @@
 #import "src/lib_cv.typ": *
+#import "@local/typst-design:0.1.0": cv-page
 
 // Import all sections
 #import "src/sections/education.typ": education
@@ -15,22 +16,7 @@
 #import "src/sections/proposal_writing.typ": proposal_writing
 #import "src/sections/honors.typ": honors
 
-#set document(title: "Bassel El Mabsout - Curriculum Vitae")
-
-// Document settings
-#set page(
-  margin: (x: 2.5cm, y: 2cm),
-  paper: "us-letter",
-  footer: context [
-    #set align(center)
-    #counter(page).display(n => text(font: fonts.body, fill: primary_color, size: 14pt)[#n])
-  ],
-)
-
-#set text(font: fonts.body)
-#set par(leading: 1em)
-#set block(spacing: 0em)
-#show link: it => text(fill: primary_color, underline(it))
+#show: cv-page.with(style: style, title: "Bassel El Mabsout - Curriculum Vitae")
 
 // Header
 #v(-2em)

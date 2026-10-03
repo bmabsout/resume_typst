@@ -5,9 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     typix.url = "github:loqusion/typix";
+    typst-design.url = "github:bmabsout/typst-design";
+    typst-design.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, typix }:
+  outputs = { self, nixpkgs, flake-utils, typix, typst-design }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -16,6 +18,9 @@
 
         typixLib = typix.lib.${system};
         
+        # The design system, importable as "@local/typst-design:<version>".
+        designPackages = typst-design.packages.${system}.default;
+
         fontPaths = [
           "./fonts"
           # "${pkgs.eb-garamond}/share/fonts/opentype"
@@ -30,12 +35,14 @@
           src = ./.;
           typstSource = "resume.typ";
           inherit fontPaths;
+          TYPST_PACKAGE_PATH = designPackages;
         };
         packages.cv = typixLib.buildTypstProject {
           name = "cv";
           src = ./.;
           typstSource = "cv.typ";
           inherit fontPaths;
+          TYPST_PACKAGE_PATH = designPackages;
         };
 
         devShells.default = typixLib.devShell {
@@ -48,6 +55,7 @@
           ];
           # in order to get the correct value from datetime.today()
           shellHook = ''
+            export TYPST_PACKAGE_PATH=${designPackages}
             unset SOURCE_DATE_EPOCH
           '';
         };
