@@ -98,11 +98,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791124828,
-        "narHash": "sha256-KlL1KaJxE0M4dR5gxkiIB0jF5a3F69qULJ1U/i6/vbs=",
+        "lastModified": 1791125256,
+        "narHash": "sha256-Xx4TOKv3Slzo9DsVu0FNIGMjqo5sZ8QopTFRUM4toxs=",
         "owner": "bmabsout",
         "repo": "typst-design",
-        "rev": "3a892cf0ec706b21065e0f3220cf812405176883",
+        "rev": "4f5f083dad55bdc443c8b97988cc35a0027a7bdc",
         "type": "github"
       },
       "original": {
