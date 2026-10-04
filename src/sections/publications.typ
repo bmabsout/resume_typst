@@ -1,7 +1,7 @@
 #import "../lib_cv.typ": *
 #import "../publications.typ": publications, labels_n_refs
 
-#let authors_contributed_equally = text(size: 8pt, fill: shade_fg.lighten(40%))[#text(size:12pt, "*") Authors contributed equally]
+#let authors_contributed_equally = text(size: 8pt, fill: muted_color)[#text(size:12pt, "*") Authors contributed equally]
 
 #let publications_section = cv_section_list("PUBLICATIONS",
   (

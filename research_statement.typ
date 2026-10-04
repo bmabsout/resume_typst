@@ -1,44 +1,15 @@
+#import "@local/typst-design:0.1.0": statement
 #import "src/lib_cv.typ": primary_color, long_line, diamond
 
-#set document(title: "Research Statement - Bassel El Mabsout")
-
-#set page(
-  width: 8.5in,
-  height: 11in,
-  margin: (x: 1in, y: 1in),
-)
-
-#set block(
-  // spacing: 0.5em,
-)
-
-#set text(
-  font: "Libertinus Serif",
+#show: statement.with(
+  author: [Bassel El Mabsout],
+  title: [Research Statement],
+  document-title: "Research Statement - Bassel El Mabsout",
   size: 10.5pt,
+  primary: primary_color,
+  rule: long_line,
+  diamond: diamond,
 )
-
-#show heading.where(level: 1): it => [
-  #long_line
-  #set text(fill: primary_color, weight: "bold", size: 13pt)
-  #it
-  #v(0.5em)
-]
-
-#show heading.where(level: 2): it => [
-  #set text(fill: primary_color.lighten(20%), weight: "medium", size: 13pt)
-  #it
-]
-
-#set par(
-  justify: true,
-  leading: 0.8em,
-)
-
-#v(-3em)
-// Title
-#align(center)[
-  #text(size: 16pt, weight: "bold", fill: primary_color)[Bassel El Mabsout#diamond()Research Statement]
-]
 
 = Research Vision
 Current methodologies in robotics severely limit our abilities to create capable and efficient robots, even without practical computational constraints. Evidenced by the fact that even advanced robots still struggle with seemingly simple tasks like opening doors or achieving reliable locomotion. Even when seemingly working in simulation, they often fail to generalize when deployed in the real world. The challenge isn't just bridging simulation and reality—it's that our fundamental approaches to specifying and learning robotic behaviors are inherently inefficient and brittle. Modern control theory techniques which include learning, while powerful, often require roboticists to engage in the complex and error-prone task of designing objective functions that faithfully capture desired behaviors. My research aims to transform the field by developing principled methods that enable the *faithful translation of high-level objectives into robust learned behaviors*. Through my work combining programming languages, machine learning, and embedded systems, I develop techniques encompassing the entire robotic control stack, guiding practitioners in overcoming core limitations in robot controller design and implementation. This agenda introduces new foundations that make better use of available computational resources, enabling a new generation of robots that can achieve sophisticated capabilities while maintaining efficiency, and reliability in the real world.

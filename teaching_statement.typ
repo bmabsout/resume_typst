@@ -1,35 +1,15 @@
+#import "@local/typst-design:0.1.0": statement
 #import "src/lib_cv.typ": primary_color, long_line, diamond
 
-#set document(title: "Teaching Statement - Bassel El Mabsout")
-
-#set page(
-  width: 8.5in,
-  height: 11in,
-  margin: (x: 1in, y: 1in),
-)
-
-#set text(
-  font: "Libertinus Serif",
+#show: statement.with(
+  author: [Bassel El Mabsout],
+  title: [Teaching Statement],
+  document-title: "Teaching Statement - Bassel El Mabsout",
   size: 11pt,
+  primary: primary_color,
+  rule: long_line,
+  diamond: diamond,
 )
-
-#show heading.where(level: 1): it => [
-  #long_line
-  #set text(fill: primary_color, weight: "bold", size: 13pt)
-  #it
-  #v(0.5em)
-]
-
-#set par(
-  justify: true,
-  leading: 0.8em,
-)
-
-#v(-3em)
-// Title
-#align(center)[
-  #text(size: 16pt, weight: "bold", fill: primary_color)[Bassel El Mabsout#diamond()Teaching Statement]
-]
 
 = Teaching Vision
 My teaching philosophy centers on empowering students to become independent problem-solvers by bridging theoretical foundations with hands-on applications. Drawing from my experience in robotics and embedded systems, I believe that deep learning occurs when students connect abstract concepts to concrete implementations and learn from both successes and failures. My approach creates an inclusive environment where students develop both technical expertise and professional skills through practical experimentation.

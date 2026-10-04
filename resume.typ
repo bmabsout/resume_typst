@@ -1,17 +1,7 @@
 #import "src/lib.typ": *
 
-#set document(title: "Bassel El Mabsout - Resume")
-// Main document settings
-#set page(
-  margin: (x: 1.15cm, y: 0.5cm),
-  paper: "us-letter",
-)
-
-#set text(
-  font: fonts.body,
-  size: 10pt,
-  fill: rgb(43, 43, 43),
-)
+#import "@local/typst-design:0.1.0": resume-page
+#show: resume-page.with(style: style, title: "Bassel El Mabsout - Resume")
 
 // Document heading - outside columns
 #header_section(

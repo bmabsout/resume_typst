@@ -54,7 +54,8 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
-        "typix": "typix"
+        "typix": "typix",
+        "typst-design": "typst-design"
       }
     },
     "systems": {
@@ -87,6 +88,26 @@
       "original": {
         "owner": "loqusion",
         "repo": "typix",
+        "type": "github"
+      }
+    },
+    "typst-design": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791074730,
+        "narHash": "sha256-QVCvbzOSapq46Ukw1XgMv2Mq3phKGiRuUwbRyOc7yYo=",
+        "owner": "bmabsout",
+        "repo": "typst-design",
+        "rev": "79d9dbafcd6457f269c3cd8b6f88c0ac27e35851",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bmabsout",
+        "repo": "typst-design",
         "type": "github"
       }
     }
