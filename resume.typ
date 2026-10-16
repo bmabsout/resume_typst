@@ -1,6 +1,6 @@
 #import "src/lib.typ": *
 
-#import "@local/typst-design:0.1.0": resume-page
+#import "src/design/resume.typ": resume-page
 #show: resume-page.with(style: style, title: "Bassel El Mabsout - Resume")
 
 // Document heading - outside columns

@@ -1,4 +1,4 @@
-#import "@local/typst-design:0.1.0": statement
+#import "src/design/statement.typ": statement
 #import "src/lib_cv.typ": primary_color, long_line, diamond
 
 #show: statement.with(
