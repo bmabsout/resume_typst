@@ -1,6 +1,8 @@
-// The one-page resume's building blocks, from the shared design system
+// The one-page resume's building blocks, from its template
+// (design/resume.typ), which is built on the shared design system
 // (bmabsout/typst-design). This file only binds the names resume.typ uses.
-#import "@local/typst-design:0.1.0": resume-style, resume-kit, fa
+#import "design/resume.typ": resume-style, resume-kit
+#import "@local/typst-design:0.1.0": fa
 
 #let style = resume-style(owner: "Mabsout")
 #let kit = resume-kit(style)

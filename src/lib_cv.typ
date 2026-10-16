@@ -1,6 +1,8 @@
-// The CV's building blocks, from the shared design system
-// (bmabsout/typst-design). This file only binds the names the sections use.
-#import "@local/typst-design:0.1.0": cv-style, cv-kit, cv-page, ramps
+// The CV's building blocks, from its template (design/cv.typ), which is
+// built on the shared design system (bmabsout/typst-design). This file only
+// binds the names the sections use.
+#import "design/cv.typ": cv-style, cv-kit, cv-page
+#import "@local/typst-design:0.1.0": ramps
 
 #let style = cv-style(owner: "Mabsout")
 #let kit = cv-kit(style)

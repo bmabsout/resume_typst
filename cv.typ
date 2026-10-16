@@ -1,5 +1,5 @@
 #import "src/lib_cv.typ": *
-#import "@local/typst-design:0.1.0": cv-page
+#import "src/design/cv.typ": cv-page
 
 // Import all sections
 #import "src/sections/education.typ": education
