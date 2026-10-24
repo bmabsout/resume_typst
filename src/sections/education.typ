@@ -11,7 +11,7 @@
       [Advisor: Renato Mancuso \
       Dissertation: _Minimizing the Intent-to-Reality Gap in Robot Learning: A Fulfillment-Centric Perspective_\
       #h(cv_styling.insets.inner.left)_Committee: \[Renato Mancuso#diamond()Kate Saenko#diamond()Sabrina Neuman#diamond()Bingzhuo Zhong\]_
-      #links(labeled("dissertation", link("https://github.com/bmabsout/Thesis/blob/main/thesis.pdf")[github.com/bmabsout/Thesis]), labeled("qualifiers survey paper", link("https://arxiv.org/abs/2501.01432")[2501.01432]))]
+      #links(labeled("dissertation", link("https://github.com/bmabsout/Thesis/blob/main/thesis.pdf")[github.com/bmabsout/Thesis]), labeled("ProQuest", link("https://proquest.com/docview/3368660213")[32164868]), labeled("qualifiers survey paper", link("https://arxiv.org/abs/2501.01432")[2501.01432]))]
     ),
     cv_entry(
       entry_heading(
